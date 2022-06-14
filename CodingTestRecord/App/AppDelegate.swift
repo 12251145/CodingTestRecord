@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UITableView.appearance().tableHeaderView = .init(frame: .init(x: 0, y: 0, width: 0, height: 20))
+        
         return true
     }
 
