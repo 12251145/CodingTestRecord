@@ -11,6 +11,7 @@ import UIKit
 final class HomeViewModel {
     weak var coordinator: HomeCoordinator?
     private var homeUseCase: HomeUseCase
+    var codingTestSettings: [CodingTestSetting] = []
     
     init(coordinator: HomeCoordinator, homeUseCase: HomeUseCase) {
         self.coordinator = coordinator
@@ -20,10 +21,11 @@ final class HomeViewModel {
     struct Input {
         let viewDidLoadEvent: AnyPublisher<Void, Never>
         let addCodingTestButtonDidTap: AnyPublisher<Void, Never>
+        let tableViewCellDidSelected: AnyPublisher<Int, Never>
     }
     
     struct Output {
-        var codingTestSettings = CurrentValueSubject<[CodingTestSetting], Never>([])
+        var addButtonDidTap = PassthroughSubject<Bool, Never>()
     }
     
     func transform(input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
@@ -38,12 +40,19 @@ final class HomeViewModel {
         input.addCodingTestButtonDidTap
             .sink { _ in
                 self.homeUseCase.addCodingTest()
+                output.addButtonDidTap.send(true)
+            }
+            .store(in: &subscriptions)
+        
+        input.tableViewCellDidSelected
+            .sink { [weak self] indexPathRow in
+                self?.coordinator?.showSettingFlow(with: self?.codingTestSettings[indexPathRow] ?? CodingTestSetting()) 
             }
             .store(in: &subscriptions)
         
         self.homeUseCase.codingTests
             .sink { codingTestSettings in
-                output.codingTestSettings.value = codingTestSettings
+                self.codingTestSettings = codingTestSettings
             }
             .store(in: &subscriptions)
         

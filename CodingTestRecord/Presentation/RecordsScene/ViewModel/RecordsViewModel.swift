@@ -5,6 +5,7 @@
 //  Created by Hoen on 2022/06/13.
 //
 
+import Combine
 import Foundation
 
 final class RecordsViewModel {
@@ -14,5 +15,19 @@ final class RecordsViewModel {
     init(coordinator: RecordsCoordinator, recordsUseCase: RecordsUseCase) {
         self.coordinator = coordinator
         self.recordsUseCase = recordsUseCase
+    }
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    func transform(from input: Input, subscriptions: Set<AnyCancellable>) -> Output {
+        let output = Output()
+        
+        return output
     }
 }

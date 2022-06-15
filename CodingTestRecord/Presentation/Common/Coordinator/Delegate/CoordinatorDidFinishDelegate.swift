@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol CoordinatorFinishDelegate: AnyObject {
+protocol CoordinatorDidFinishDelegate: AnyObject {
     func coordinatorDidFinish(childCoordinator: Coordinator)
 }

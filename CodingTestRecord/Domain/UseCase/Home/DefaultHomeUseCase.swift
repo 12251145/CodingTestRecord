@@ -21,12 +21,18 @@ final class DefaultHomeUseCase: HomeUseCase {
     }
     
     func addCodingTest() {
-        if self.codingTestSettingRepository.addCodingTestSetting("테스트", 3600) {
+        if self.codingTestSettingRepository.addCodingTestSetting("노란회사 인턴", 18000) {
             self.loadCodingTestSettings()
         }
     }
     
     func loadCodingTestSettings() {
-        codingTests.value = self.codingTestSettingRepository.loadCodingTestSettings()
+        self.codingTests.value = self.sortedCodintTestSettings(
+            list: self.codingTestSettingRepository.loadCodingTestSettings()
+        )
+    }
+    
+    func sortedCodintTestSettings(list: [CodingTestSetting]) -> [CodingTestSetting] {
+        return list.sorted { $0.date! < $1.date! }
     }
 }

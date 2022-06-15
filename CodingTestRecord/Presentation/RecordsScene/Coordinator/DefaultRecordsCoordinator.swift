@@ -8,7 +8,7 @@
 import UIKit
 
 final class DefaultRecordsCoordinator: RecordsCoordinator {
-    var finishDelegate: CoordinatorFinishDelegate?
+    var finishDelegate: CoordinatorDidFinishDelegate?
     var navigationController: UINavigationController
     var recordsViewController: RecordsViewController
     var childCoordinators: [Coordinator] = []

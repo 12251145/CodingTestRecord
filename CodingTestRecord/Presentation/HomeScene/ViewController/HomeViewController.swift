@@ -12,7 +12,7 @@ import SwiftUI
 final class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     var subscriptions = Set<AnyCancellable>()
-    var codingTestSettingCount = 0
+    var tableViewCellDidSelectedSubject = PassthroughSubject<Int, Never>()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -25,8 +25,11 @@ final class HomeViewController: UIViewController {
     private lazy var addCodingTestButton: UIButton = {
         var button = UIButton()
         var config = UIButton.Configuration.filled()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .bold, scale: .large)
         
-        config.baseBackgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        config.image = UIImage(systemName: "plus", withConfiguration: imageConfig)
+        config.baseForegroundColor = .systemPink
+        config.baseBackgroundColor = .white
         config.cornerStyle = .capsule
         
         button.configuration = config
@@ -49,7 +52,9 @@ final class HomeViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.separatorStyle = .none
+        tableView.backgroundColor = .secondarySystemBackground
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .singleLine
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
@@ -69,8 +74,8 @@ final class HomeViewController: UIViewController {
         let layer = CAGradientLayer()
         
         layer.colors = [
-            UIColor.systemBackground.withAlphaComponent(1).cgColor,
-            UIColor.systemBackground.withAlphaComponent(0).cgColor
+            UIColor.secondarySystemBackground.withAlphaComponent(1).cgColor,
+            UIColor.secondarySystemBackground.withAlphaComponent(0).cgColor
         ]
         
         layer.startPoint = CGPoint(x: 0.5, y: 0.0)
@@ -86,6 +91,11 @@ final class HomeViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("View will appear")
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.gradientLayer.frame = CGRect(x: 0, y: 0, width: self.gradientContainerView.bounds.width, height: self.gradientContainerView.bounds.height / 2)
@@ -96,9 +106,9 @@ final class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem()
         
         // titleLabel
@@ -144,13 +154,14 @@ private extension HomeViewController {
     func bindViewModel() {
         let output = viewModel?.transform(input: HomeViewModel.Input(
             viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
-            addCodingTestButtonDidTap: self.addCodingTestButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
+            addCodingTestButtonDidTap: self.addCodingTestButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
+            tableViewCellDidSelected: self.tableViewCellDidSelectedSubject.eraseToAnyPublisher()
         ), subscriptions: &subscriptions)
         
-        output?.codingTestSettings
-            .sink(receiveValue: { codingTestSettings in
-                self.codingTestSettingCount = codingTestSettings.count
-                self.tableView.reloadData()
+        output?.addButtonDidTap
+            .filter { $0 }
+            .sink(receiveValue: { [weak self] _ in
+                self?.tableView.reloadData()
             })
             .store(in: &subscriptions)
     }
@@ -158,7 +169,7 @@ private extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.codingTestSettingCount
+        return self.viewModel?.codingTestSettings.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -167,15 +178,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+        let codingTestSetting = self.viewModel?.codingTestSettings[indexPath.row]
         
         cell.contentConfiguration = UIHostingConfiguration {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(.white)
-                .shadow(radius: 5)
-                .frame(width: UIScreen.main.bounds.width - 32, height: 100)
+            CodingTestCellView(setting: codingTestSetting!)
         }
+        .background(Color(.secondarySystemBackground))
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableViewCellDidSelectedSubject.send(indexPath.row)
     }
 }
 

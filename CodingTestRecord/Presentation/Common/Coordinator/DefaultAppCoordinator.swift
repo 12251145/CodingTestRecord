@@ -9,7 +9,7 @@ import UIKit
 
 final class DefaultAppCoordinator: AppCoordinator {
         
-    var finishDelegate: CoordinatorFinishDelegate?
+    var finishDelegate: CoordinatorDidFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType { .app }
@@ -31,7 +31,7 @@ final class DefaultAppCoordinator: AppCoordinator {
     }
 }
 
-extension DefaultAppCoordinator: CoordinatorFinishDelegate {
+extension DefaultAppCoordinator: CoordinatorDidFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         self.childCoordinators = self.childCoordinators.filter({ $0.type != childCoordinator.type })
         self.navigationController.viewControllers.removeAll()

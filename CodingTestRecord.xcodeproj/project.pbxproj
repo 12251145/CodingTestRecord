@@ -7,12 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A31FE1F2858C94500AA8625 /* CodingTestSettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE1E2858C94500AA8625 /* CodingTestSettingCoordinator.swift */; };
+		6A31FE212858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE202858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift */; };
+		6A31FE232858CA3F00AA8625 /* TitleSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE222858CA3F00AA8625 /* TitleSettingViewController.swift */; };
+		6A31FE252858CA9600AA8625 /* TitleSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE242858CA9600AA8625 /* TitleSettingViewModel.swift */; };
+		6A31FE272858CB1800AA8625 /* CodingTestSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE262858CB1800AA8625 /* CodingTestSettingUseCase.swift */; };
+		6A31FE292858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE282858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift */; };
+		6A31FE2B2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE2A2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift */; };
+		6A31FE2D2859605600AA8625 /* UIControl + ControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE2C2859605600AA8625 /* UIControl + ControlPublisher.swift */; };
+		6A31FE3128597F4B00AA8625 /* CursorDisabledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE3028597F4B00AA8625 /* CursorDisabledTextField.swift */; };
+		6A31FE332859B53100AA8625 /* TitleSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE322859B53100AA8625 /* TitleSettingUseCase.swift */; };
+		6A31FE352859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE342859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift */; };
+		6A31FE372859C14700AA8625 /* ProblemsSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE362859C14700AA8625 /* ProblemsSettingViewController.swift */; };
+		6A31FE392859C15500AA8625 /* ProblemsSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE382859C15500AA8625 /* ProblemsSettingViewModel.swift */; };
+		6A31FE3B2859DD0300AA8625 /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE3A2859DD0300AA8625 /* TimeSettingViewController.swift */; };
+		6A31FE3D2859DD2500AA8625 /* TimeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE3C2859DD2500AA8625 /* TimeSettingViewModel.swift */; };
+		6A31FE3F2859E82B00AA8625 /* UIColor + CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE3E2859E82B00AA8625 /* UIColor + CustomColor.swift */; };
+		6A31FE41285A163100AA8625 /* CodingTestingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE40285A163000AA8625 /* CodingTestingCoordinator.swift */; };
+		6A31FE43285A166800AA8625 /* DefaultCodingTestingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE42285A166800AA8625 /* DefaultCodingTestingCoordinator.swift */; };
+		6A31FE45285A193000AA8625 /* CodingTestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */; };
+		6A31FE47285A193800AA8625 /* CodingTestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE46285A193800AA8625 /* CodingTestingViewModel.swift */; };
+		6A31FE49285A195300AA8625 /* CodingTestingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */; };
+		6A31FE4B285A195E00AA8625 /* DefaultCodingTestingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */; };
+		6A31FE4D285A1E3300AA8625 /* CodingTestPreparationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */; };
+		6A31FE4F285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE4E285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift */; };
+		6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822C28587B6B009D843D /* CodingTestCellView.swift */; };
+		6A468232285893BC009D843D /* CodingTestSetting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */; };
+		6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */; };
+		6A468234285893BC009D843D /* Problem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A468230285893BC009D843D /* Problem+CoreDataClass.swift */; };
+		6A468235285893BC009D843D /* Problem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A468231285893BC009D843D /* Problem+CoreDataProperties.swift */; };
 		6A541FAA285775E0000008D4 /* DefaultCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FA9285775E0000008D4 /* DefaultCoreDataService.swift */; };
 		6A541FAE28579084000008D4 /* CodingTestSettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FAD28579084000008D4 /* CodingTestSettingRepository.swift */; };
 		6A541FB0285790A7000008D4 /* DefaultCodingTestSettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */; };
 		6A541FB328579112000008D4 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB228579112000008D4 /* CoreDataService.swift */; };
+		6A541FB52858530E000008D4 /* Int32 + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB42858530E000008D4 /* Int32 + Formatter.swift */; };
 		6ADA1B8C285717A5009E41AD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8B285717A5009E41AD /* Coordinator.swift */; };
-		6ADA1B8E285717D5009E41AD /* CoordinatorFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8D285717D5009E41AD /* CoordinatorFinishDelegate.swift */; };
+		6ADA1B8E285717D5009E41AD /* CoordinatorDidFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8D285717D5009E41AD /* CoordinatorDidFinishDelegate.swift */; };
 		6ADA1B902857185C009E41AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8F2857185C009E41AD /* CoordinatorType.swift */; };
 		6ADA1B922857198E009E41AD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B912857198E009E41AD /* AppCoordinator.swift */; };
 		6ADA1B9428571A35009E41AD /* DefaultAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B9328571A35009E41AD /* DefaultAppCoordinator.swift */; };
@@ -40,12 +70,42 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A31FE1E2858C94500AA8625 /* CodingTestSettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestSettingCoordinator.swift; sourceTree = "<group>"; };
+		6A31FE202858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingCoordinator.swift; sourceTree = "<group>"; };
+		6A31FE222858CA3F00AA8625 /* TitleSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSettingViewController.swift; sourceTree = "<group>"; };
+		6A31FE242858CA9600AA8625 /* TitleSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSettingViewModel.swift; sourceTree = "<group>"; };
+		6A31FE262858CB1800AA8625 /* CodingTestSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestSettingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE282858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE2A2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinatorDidFinishDelegate.swift; sourceTree = "<group>"; };
+		6A31FE2C2859605600AA8625 /* UIControl + ControlPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl + ControlPublisher.swift"; sourceTree = "<group>"; };
+		6A31FE3028597F4B00AA8625 /* CursorDisabledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorDisabledTextField.swift; sourceTree = "<group>"; };
+		6A31FE322859B53100AA8625 /* TitleSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSettingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE342859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTitleSettingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE362859C14700AA8625 /* ProblemsSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemsSettingViewController.swift; sourceTree = "<group>"; };
+		6A31FE382859C15500AA8625 /* ProblemsSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemsSettingViewModel.swift; sourceTree = "<group>"; };
+		6A31FE3A2859DD0300AA8625 /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
+		6A31FE3C2859DD2500AA8625 /* TimeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModel.swift; sourceTree = "<group>"; };
+		6A31FE3E2859E82B00AA8625 /* UIColor + CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + CustomColor.swift"; sourceTree = "<group>"; };
+		6A31FE40285A163000AA8625 /* CodingTestingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCoordinator.swift; sourceTree = "<group>"; };
+		6A31FE42285A166800AA8625 /* DefaultCodingTestingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestingCoordinator.swift; sourceTree = "<group>"; };
+		6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingViewController.swift; sourceTree = "<group>"; };
+		6A31FE46285A193800AA8625 /* CodingTestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingViewModel.swift; sourceTree = "<group>"; };
+		6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestingUseCase.swift; sourceTree = "<group>"; };
+		6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestPreparationViewController.swift; sourceTree = "<group>"; };
+		6A31FE4E285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestPreparationViewModel.swift; sourceTree = "<group>"; };
+		6A46822C28587B6B009D843D /* CodingTestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestCellView.swift; sourceTree = "<group>"; };
+		6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A468230285893BC009D843D /* Problem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Problem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A468231285893BC009D843D /* Problem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Problem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6A541FA9285775E0000008D4 /* DefaultCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataService.swift; sourceTree = "<group>"; };
 		6A541FAD28579084000008D4 /* CodingTestSettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestSettingRepository.swift; sourceTree = "<group>"; };
 		6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingRepository.swift; sourceTree = "<group>"; };
 		6A541FB228579112000008D4 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		6A541FB42858530E000008D4 /* Int32 + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int32 + Formatter.swift"; sourceTree = "<group>"; };
 		6ADA1B8B285717A5009E41AD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		6ADA1B8D285717D5009E41AD /* CoordinatorFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishDelegate.swift; sourceTree = "<group>"; };
+		6ADA1B8D285717D5009E41AD /* CoordinatorDidFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDidFinishDelegate.swift; sourceTree = "<group>"; };
 		6ADA1B8F2857185C009E41AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		6ADA1B912857198E009E41AD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6ADA1B9328571A35009E41AD /* DefaultAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppCoordinator.swift; sourceTree = "<group>"; };
@@ -157,7 +217,7 @@
 		6ADA1B82285714D5009E41AD /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				6ADA1B8D285717D5009E41AD /* CoordinatorFinishDelegate.swift */,
+				6ADA1B8D285717D5009E41AD /* CoordinatorDidFinishDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -204,6 +264,10 @@
 		6ADA1B872857151C009E41AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */,
+				6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */,
+				6A468230285893BC009D843D /* Problem+CoreDataClass.swift */,
+				6A468231285893BC009D843D /* Problem+CoreDataProperties.swift */,
 				6ADA1BC528576BDA009E41AD /* Model.xcdatamodeld */,
 			);
 			path = Model;
@@ -222,7 +286,10 @@
 		6ADA1B8928571538009E41AD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				6A31FE3E2859E82B00AA8625 /* UIColor + CustomColor.swift */,
 				6ADA1BC328574839009E41AD /* UIControl + ButtonPublisher.swift */,
+				6A31FE2C2859605600AA8625 /* UIControl + ControlPublisher.swift */,
+				6A541FB42858530E000008D4 /* Int32 + Formatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BA328572A1B009E41AD /* DefaultHomeCoordinator.swift */,
+				6A31FE202858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift */,
+				6A31FE42285A166800AA8625 /* DefaultCodingTestingCoordinator.swift */,
 				6ADA1BA0285729F0009E41AD /* Protocol */,
 			);
 			path = Coordinator;
@@ -260,6 +329,11 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BA728572AD7009E41AD /* HomeViewModel.swift */,
+				6A31FE242858CA9600AA8625 /* TitleSettingViewModel.swift */,
+				6A31FE382859C15500AA8625 /* ProblemsSettingViewModel.swift */,
+				6A31FE3C2859DD2500AA8625 /* TimeSettingViewModel.swift */,
+				6A31FE4E285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift */,
+				6A31FE46285A193800AA8625 /* CodingTestingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -268,6 +342,11 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BA528572A9D009E41AD /* HomeViewController.swift */,
+				6A31FE222858CA3F00AA8625 /* TitleSettingViewController.swift */,
+				6A31FE362859C14700AA8625 /* ProblemsSettingViewController.swift */,
+				6A31FE3A2859DD0300AA8625 /* TimeSettingViewController.swift */,
+				6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */,
+				6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -275,6 +354,8 @@
 		6ADA1B9F285729E2009E41AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
+				6A31FE3028597F4B00AA8625 /* CursorDisabledTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BA128572A01009E41AD /* HomeCoordinator.swift */,
+				6A31FE1E2858C94500AA8625 /* CodingTestSettingCoordinator.swift */,
+				6A31FE2A2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift */,
+				6A31FE40285A163000AA8625 /* CodingTestingCoordinator.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -291,6 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BAD28572B5E009E41AD /* DefaultHomeUseCase.swift */,
+				6A31FE282858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift */,
+				6A31FE342859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift */,
+				6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */,
 				6ADA1BAA28572B3C009E41AD /* Protocol */,
 			);
 			path = Home;
@@ -300,6 +387,9 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BAB28572B45009E41AD /* HomeUseCase.swift */,
+				6A31FE262858CB1800AA8625 /* CodingTestSettingUseCase.swift */,
+				6A31FE322859B53100AA8625 /* TitleSettingUseCase.swift */,
+				6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -483,32 +573,62 @@
 			files = (
 				6A541FB328579112000008D4 /* CoreDataService.swift in Sources */,
 				6A541FB0285790A7000008D4 /* DefaultCodingTestSettingRepository.swift in Sources */,
+				6A31FE1F2858C94500AA8625 /* CodingTestSettingCoordinator.swift in Sources */,
 				6ADA1BBA28573261009E41AD /* DefaultRecordsCoordinator.swift in Sources */,
 				6ADA1BC228573357009E41AD /* RecordsViewController.swift in Sources */,
+				6A31FE47285A193800AA8625 /* CodingTestingViewModel.swift in Sources */,
 				6ADA1B922857198E009E41AD /* AppCoordinator.swift in Sources */,
+				6A31FE252858CA9600AA8625 /* TitleSettingViewModel.swift in Sources */,
 				6ADD0B312857103200884C5D /* AppDelegate.swift in Sources */,
+				6A31FE292858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift in Sources */,
 				6ADA1B9628571AF6009E41AD /* TabBarCoordinator.swift in Sources */,
+				6A31FE45285A193000AA8625 /* CodingTestingViewController.swift in Sources */,
 				6ADD0B332857103200884C5D /* SceneDelegate.swift in Sources */,
-				6ADA1B8E285717D5009E41AD /* CoordinatorFinishDelegate.swift in Sources */,
+				6A468235285893BC009D843D /* Problem+CoreDataProperties.swift in Sources */,
+				6A31FE2B2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift in Sources */,
+				6ADA1B8E285717D5009E41AD /* CoordinatorDidFinishDelegate.swift in Sources */,
+				6A468234285893BC009D843D /* Problem+CoreDataClass.swift in Sources */,
+				6A31FE232858CA3F00AA8625 /* TitleSettingViewController.swift in Sources */,
 				6ADA1BB828573244009E41AD /* RecordsCoordinator.swift in Sources */,
+				6A31FE332859B53100AA8625 /* TitleSettingUseCase.swift in Sources */,
+				6A31FE4B285A195E00AA8625 /* DefaultCodingTestingUseCase.swift in Sources */,
 				6ADA1B8C285717A5009E41AD /* Coordinator.swift in Sources */,
 				6ADA1B9828571B5C009E41AD /* DefaultTabBarCoordinator.swift in Sources */,
 				6ADA1B9428571A35009E41AD /* DefaultAppCoordinator.swift in Sources */,
+				6A31FE392859C15500AA8625 /* ProblemsSettingViewModel.swift in Sources */,
+				6A31FE3B2859DD0300AA8625 /* TimeSettingViewController.swift in Sources */,
 				6ADA1BC728576BDB009E41AD /* Model.xcdatamodeld in Sources */,
 				6ADA1B9A28572667009E41AD /* TabBarPage.swift in Sources */,
+				6A31FE49285A195300AA8625 /* CodingTestingUseCase.swift in Sources */,
 				6ADA1BAC28572B45009E41AD /* HomeUseCase.swift in Sources */,
+				6A31FE3D2859DD2500AA8625 /* TimeSettingViewModel.swift in Sources */,
+				6A541FB52858530E000008D4 /* Int32 + Formatter.swift in Sources */,
 				6ADA1BAE28572B5E009E41AD /* DefaultHomeUseCase.swift in Sources */,
+				6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */,
 				6ADA1BB628573214009E41AD /* RecordsViewModel.swift in Sources */,
+				6A31FE4D285A1E3300AA8625 /* CodingTestPreparationViewController.swift in Sources */,
 				6A541FAE28579084000008D4 /* CodingTestSettingRepository.swift in Sources */,
+				6A31FE3F2859E82B00AA8625 /* UIColor + CustomColor.swift in Sources */,
 				6ADA1BA828572AD7009E41AD /* HomeViewModel.swift in Sources */,
 				6ADA1BA428572A1B009E41AD /* DefaultHomeCoordinator.swift in Sources */,
 				6ADA1B902857185C009E41AD /* CoordinatorType.swift in Sources */,
 				6ADA1BA628572A9D009E41AD /* HomeViewController.swift in Sources */,
+				6A31FE272858CB1800AA8625 /* CodingTestSettingUseCase.swift in Sources */,
+				6A31FE3128597F4B00AA8625 /* CursorDisabledTextField.swift in Sources */,
+				6A31FE2D2859605600AA8625 /* UIControl + ControlPublisher.swift in Sources */,
 				6ADA1BC0285732E2009E41AD /* DefaultRecordsUseCase.swift in Sources */,
+				6A31FE4F285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift in Sources */,
 				6ADA1BC428574839009E41AD /* UIControl + ButtonPublisher.swift in Sources */,
 				6ADA1BBE285732D2009E41AD /* RecordsUseCase.swift in Sources */,
 				6A541FAA285775E0000008D4 /* DefaultCoreDataService.swift in Sources */,
+				6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */,
+				6A31FE372859C14700AA8625 /* ProblemsSettingViewController.swift in Sources */,
+				6A468232285893BC009D843D /* CodingTestSetting+CoreDataClass.swift in Sources */,
+				6A31FE43285A166800AA8625 /* DefaultCodingTestingCoordinator.swift in Sources */,
+				6A31FE41285A163100AA8625 /* CodingTestingCoordinator.swift in Sources */,
 				6ADA1BA228572A01009E41AD /* HomeCoordinator.swift in Sources */,
+				6A31FE212858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift in Sources */,
+				6A31FE352859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

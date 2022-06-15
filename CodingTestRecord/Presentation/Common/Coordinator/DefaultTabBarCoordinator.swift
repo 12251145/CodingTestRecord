@@ -9,7 +9,7 @@ import UIKit
 
 final class DefaultTabBarCoordinator: TabBarCoordinator {
     var tabBarController: UITabBarController
-    var finishDelegate: CoordinatorFinishDelegate?
+    var finishDelegate: CoordinatorDidFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType { .tab }
@@ -30,7 +30,7 @@ final class DefaultTabBarCoordinator: TabBarCoordinator {
     private func configureTabBarController(with tabViewControllers: [UIViewController]) {
         self.tabBarController.setViewControllers(tabViewControllers, animated: true)
         self.tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
-        self.tabBarController.tabBar.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        self.tabBarController.tabBar.backgroundColor = .white
         
         self.navigationController.pushViewController(self.tabBarController, animated: true)
     }
@@ -40,8 +40,8 @@ final class DefaultTabBarCoordinator: TabBarCoordinator {
         
         tabNavigationController.setNavigationBarHidden(false, animated: false)
         tabNavigationController.tabBarItem = UITabBarItem(
-            title: nil,
-            image: UIImage(systemName: "heart.fill"),
+            title: page == .home ? "코딩 테스트" : "기록",
+            image: UIImage(systemName: page == .home ? "applescript.fill" : "book.closed.fill"),
             tag: page.pageOrderNumber())
         self.startTabCoordinator(of: page, to: tabNavigationController)
         return tabNavigationController
@@ -63,7 +63,7 @@ final class DefaultTabBarCoordinator: TabBarCoordinator {
     }
 }
 
-extension DefaultTabBarCoordinator: CoordinatorFinishDelegate {
+extension DefaultTabBarCoordinator: CoordinatorDidFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         self.childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
     }

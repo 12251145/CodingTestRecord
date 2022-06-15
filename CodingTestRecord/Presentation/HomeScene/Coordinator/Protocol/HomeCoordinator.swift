@@ -8,5 +8,5 @@
 import UIKit
 
 protocol HomeCoordinator: Coordinator {
-    
+    func showSettingFlow(with settingData: CodingTestSetting)
 }
