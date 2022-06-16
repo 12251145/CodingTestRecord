@@ -28,9 +28,9 @@ extension Int32 {
         let m = self / 60 % 60
         let h = self / 3600
 
-        let mm = "\(m)"
+        let mm = m == 0 ? "0\(m)" : "\(m)"
         let hh = "\(h)"
         
-        return m == 0 ? "\(hh)시간" : "\(hh)시간 \(mm)분"
+        return "\(hh)시간 \(mm)분"
     }
 }

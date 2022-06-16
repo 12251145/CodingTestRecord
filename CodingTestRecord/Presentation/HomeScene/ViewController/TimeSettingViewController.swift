@@ -142,7 +142,7 @@ private extension TimeSettingViewController {
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.timeLabel.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 40),
+            self.timeLabel.centerYAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 80),
             self.timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         

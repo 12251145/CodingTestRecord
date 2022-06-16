@@ -108,7 +108,7 @@ private extension ProblemsSettingViewController {
         self.addProblemButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.addProblemButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 30),
+            self.addProblemButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 25),
             self.addProblemButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
 
@@ -116,7 +116,7 @@ private extension ProblemsSettingViewController {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.addProblemButton.bottomAnchor, constant: 20),
+            self.tableView.topAnchor.constraint(equalTo: self.addProblemButton.bottomAnchor, constant: 30),
             self.tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)

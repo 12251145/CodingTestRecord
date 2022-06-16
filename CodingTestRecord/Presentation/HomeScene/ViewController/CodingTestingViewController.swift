@@ -107,10 +107,25 @@ private extension CodingTestingViewController {
     }
     
     func bindViewModel() {
-        let _ = self.viewModel?.transform(
-            from: CodingTestingViewModel.Input(),
+        let output = self.viewModel?.transform(
+            from: CodingTestingViewModel.Input(
+                viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
+                cancelButtonDidTap: self.cancelButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
+            ),
             subscriptions: &subscriptions
         )
+        
+        output?.leftTime
+            .sink(receiveValue: { [weak self] leftTime in
+                self?.timerLabel.text = leftTime.hhmmss
+            })
+            .store(in: &subscriptions)
+        
+        output?.progress
+            .sink(receiveValue: { [weak self] progress in
+                self?.progressView.setProgress(progress, animated: true)
+            })
+            .store(in: &subscriptions)
     }
     
     func createProgressView() -> UIProgressView {

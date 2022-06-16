@@ -10,6 +10,7 @@ import Foundation
 
 final class DefaultCodingTestingUseCase: CodingTestingUseCase {
     var codingTesting: CurrentValueSubject<CodingTesting, Never>
+    var subscriptions = Set<AnyCancellable>()
     
     init(
         codingTestSetting: CodingTestSetting
@@ -22,5 +23,34 @@ final class DefaultCodingTestingUseCase: CodingTestingUseCase {
             problems: codingTestSetting.problemArr
         )
         self.codingTesting = CurrentValueSubject<CodingTesting, Never>(codingTesting)
+    }
+    
+    func executeTimer() {
+        let start = Date()
+        
+        Timer.publish(every: 1.0, on: .main, in: .common)
+            .autoconnect()
+            .map {
+                let newTime = Double(self.codingTesting.value.timeLimit) - $0.timeIntervalSince(start)
+                
+                return newTime
+            }
+            .map {
+                return Int(round($0))
+            }
+            .sink { [weak self] leftTime in
+                self?.updateTimer(with: leftTime)
+            }
+            .store(in: &subscriptions)
+    }
+}
+
+// MARK: - Private Functions
+private extension DefaultCodingTestingUseCase {
+    func updateTimer(with time: Int) {
+        var newValue = self.codingTesting.value
+        newValue.leftTime = Int32(time)
+        
+        self.codingTesting.send(newValue)
     }
 }

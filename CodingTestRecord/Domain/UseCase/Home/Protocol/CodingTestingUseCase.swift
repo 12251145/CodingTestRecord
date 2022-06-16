@@ -10,4 +10,7 @@ import Foundation
 
 protocol CodingTestingUseCase {
     var codingTesting: CurrentValueSubject<CodingTesting, Never> { get set }
+    var subscriptions: Set<AnyCancellable> { get set }
+    
+    func executeTimer()
 }

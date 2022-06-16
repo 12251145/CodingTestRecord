@@ -11,7 +11,7 @@ import Foundation
 final class DefaultCodingTestPreparationUseCase: CodingTestPreparationUseCase {
     var isReady = CurrentValueSubject<Bool, Never>(false)
     var subscriptions = Set<AnyCancellable>()
-    private let maxTime = 2
+    private let maxTime = 1
     
     
     func executeTimer() {

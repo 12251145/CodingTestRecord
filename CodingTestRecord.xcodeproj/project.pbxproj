@@ -396,8 +396,8 @@
 				6ADA1BAD28572B5E009E41AD /* DefaultHomeUseCase.swift */,
 				6A31FE282858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift */,
 				6A31FE342859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift */,
-				6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */,
 				6A360E70285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift */,
+				6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */,
 				6ADA1BAA28572B3C009E41AD /* Protocol */,
 			);
 			path = Home;
@@ -409,8 +409,8 @@
 				6ADA1BAB28572B45009E41AD /* HomeUseCase.swift */,
 				6A31FE262858CB1800AA8625 /* CodingTestSettingUseCase.swift */,
 				6A31FE322859B53100AA8625 /* TitleSettingUseCase.swift */,
-				6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */,
 				6A360E6E285B1D480092AA23 /* CodingTestPreparationUseCase.swift */,
+				6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
