@@ -36,6 +36,13 @@ final class DefaultHomeCoordinator: HomeCoordinator {
         self.childCoordinators.append(settingCoordinator)
         settingCoordinator.start(with: settingData)
     }
+    
+    func showCodingTestingFlow(with settingData: CodingTestSetting) {
+        let codingTestingCoordinator = DefaultCodingTestingCoordinator(self.navigationController)
+        codingTestingCoordinator.finishDelegate = self
+        self.childCoordinators.append(codingTestingCoordinator)
+        codingTestingCoordinator.start(with: settingData)
+    }
 }
 
 extension DefaultHomeCoordinator: CoordinatorDidFinishDelegate {
@@ -48,8 +55,7 @@ extension DefaultHomeCoordinator: CoordinatorDidFinishDelegate {
 
 extension DefaultHomeCoordinator: SettingCoordinatorDidFinishDelegate {
     func settingCoordinatorDidFinish(with settingData: CodingTestSetting) {
-        // codingTesting 플로우로 가야함
+        
+        self.showCodingTestingFlow(with: settingData)
     }
-    
-    
 }

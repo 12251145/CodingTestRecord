@@ -21,10 +21,17 @@ final class DefaultCodingTestingCoordinator: CodingTestingCoordinator {
     func start() { }
     
     func start(with settingData: CodingTestSetting) {
-        
+        pushCodingTestingViewController(with: settingData)
     }
     
     func pushCodingTestingViewController(with settingData: CodingTestSetting) {
+        let codingTestingViewController = CodingTestingViewController()
+        codingTestingViewController.viewModel = CodingTestingViewModel(
+            coordinator: self,
+            codingTestSettingUseCase: DefaultCodingTestingUseCase(codingTestSetting: settingData)
+        )
         
+        
+        self.navigationController.pushViewController(codingTestingViewController, animated: true)
     }
 }

@@ -71,9 +71,14 @@ final class DefaultCodingTestSettingCoordinator: CodingTestSettingCoordinator {
             codingTestSettingUseCase: DefaultCodingTestSettinguseCase(
                 codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared),
                 codingTestSetting: settingData
-            )
+            ),
+            codingTestPreparationgUseCase: DefaultCodingTestPreparationUseCase()
         )
         
         self.navigationController.pushViewController(codingTestPreparationViewController, animated: true)
+    }
+    
+    func finish(with settingData: CodingTestSetting) {
+        self.settingFinishDelegate?.settingCoordinatorDidFinish(with: settingData)
     }
 }

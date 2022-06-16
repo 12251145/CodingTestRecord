@@ -11,7 +11,7 @@ import UIKit
 
 final class TitleSettingViewModel {
     weak var coordinator: CodingTestSettingCoordinator?
-    var codingTestSettingUseCase: CodingTestSettingUseCase
+    private var codingTestSettingUseCase: CodingTestSettingUseCase
     var titleSettingUseCase: TitleSettingUseCase
     
     init(

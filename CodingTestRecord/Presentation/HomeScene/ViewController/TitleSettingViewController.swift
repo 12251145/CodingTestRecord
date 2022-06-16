@@ -25,7 +25,7 @@ final class TitleSettingViewController: UIViewController {
     private lazy var titleTextField: UITextField = {
         let textField = CursorDisabledTextField()
         let attributedString = NSAttributedString(
-            string: self.viewModel?.codingTestSettingUseCase.codingTestSetting.value.title ?? "..."
+            string: "..."
         )
         
         textField.borderStyle = .none

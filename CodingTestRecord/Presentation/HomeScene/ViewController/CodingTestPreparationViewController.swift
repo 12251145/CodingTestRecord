@@ -16,7 +16,7 @@ final class CodingTestPreparationViewController: UIViewController {
         let label = UILabel()
         
         label.text = "시작합니다"
-        label.font = UIFont.systemFont(ofSize: 50, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
         
         return label
     }()
@@ -45,7 +45,9 @@ private extension CodingTestPreparationViewController {
     
     func bindViewModel() {
         let _ = viewModel?.transform(
-            from: CodingTestPreparationViewModel.Input(),
+            from: CodingTestPreparationViewModel.Input(
+                viewDidLoadEvent: Just(()).eraseToAnyPublisher()
+            ),
             subscriptions: &subscriptions
         )
     }

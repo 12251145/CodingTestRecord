@@ -10,7 +10,7 @@ import Foundation
 
 final class CodingTestingViewModel {
     weak var coordinator: CodingTestingCoordinator?
-    var codingTestSettingUseCase: CodingTestingUseCase
+    private var codingTestSettingUseCase: CodingTestingUseCase
     
     init(
         coordinator: CodingTestingCoordinator? = nil,
@@ -30,6 +30,7 @@ final class CodingTestingViewModel {
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
         let output = Output()
+                
         
         return output
     }

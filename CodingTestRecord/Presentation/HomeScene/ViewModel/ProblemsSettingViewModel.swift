@@ -11,7 +11,7 @@ import UIKit
 
 final class ProblemsSettingViewModel {
     weak var coordinator: CodingTestSettingCoordinator?
-    var codingTestSettingUseCase: CodingTestSettingUseCase
+    private var codingTestSettingUseCase: CodingTestSettingUseCase
     var problems: [Problem] = []
     
     init(coordinator: CodingTestSettingCoordinator? = nil, codingTestSettingUseCase: CodingTestSettingUseCase) {

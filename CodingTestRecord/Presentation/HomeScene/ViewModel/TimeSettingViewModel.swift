@@ -10,7 +10,7 @@ import Foundation
 
 final class TimeSettingViewModel {
     weak var coordinator: CodingTestSettingCoordinator?
-    var codingTestSettingUseCase: CodingTestSettingUseCase
+    private var codingTestSettingUseCase: CodingTestSettingUseCase
     
     init(coordinator: CodingTestSettingCoordinator? = nil, codingTestSettingUseCase: CodingTestSettingUseCase) {
         self.coordinator = coordinator
@@ -57,7 +57,6 @@ final class TimeSettingViewModel {
         self.codingTestSettingUseCase.codingTestSetting
             .map { $0.timeLimit }
             .sink { newTime in
-                print(newTime)
                 output.timeLimit.send(newTime.hhmm)
             }
             .store(in: &subscriptions)

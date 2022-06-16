@@ -12,4 +12,5 @@ protocol CodingTestSettingCoordinator: Coordinator {
     func pushProblemsSettingViewController(with settingData: CodingTestSetting)
     func pushTimeSettingViewController(with settingData: CodingTestSetting)
     func pushCodingTestPreparationViewController(with settingData: CodingTestSetting)
+    func finish(with settingData: CodingTestSetting)
 }

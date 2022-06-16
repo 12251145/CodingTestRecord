@@ -29,11 +29,6 @@ final class TimeSettingViewController: UIViewController {
         timeLabel.textColor = .black
         timeLabel.text = "3시간 30분"
         
-//        timeLabel.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        timeLabel.layer.shadowOpacity = 0.5
-//        timeLabel.layer.shadowRadius = 2
-//        timeLabel.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        
         return timeLabel
     }()
     

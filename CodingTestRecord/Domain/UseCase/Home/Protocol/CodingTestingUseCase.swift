@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol CodingTestingUseCase {
-    
+    var codingTesting: CurrentValueSubject<CodingTesting, Never> { get set }
 }

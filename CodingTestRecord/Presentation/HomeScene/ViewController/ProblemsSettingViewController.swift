@@ -42,6 +42,14 @@ final class ProblemsSettingViewController: UIViewController {
         return button
     }()
     
+    private lazy var devider: UIView = {
+        let rect = UIView()
+        
+        rect.backgroundColor = .secondarySystemBackground
+        
+        return rect
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
@@ -103,7 +111,7 @@ private extension ProblemsSettingViewController {
             self.addProblemButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 30),
             self.addProblemButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
-        
+
         self.view.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -112,6 +120,16 @@ private extension ProblemsSettingViewController {
             self.tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        self.view.addSubview(self.devider)
+        self.devider.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.devider.topAnchor.constraint(equalTo: self.tableView.topAnchor),
+            self.devider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.devider.widthAnchor.constraint(equalTo: view.widthAnchor),
+            self.devider.heightAnchor.constraint(equalToConstant: 2)
         ])
         
         self.view.addSubview(self.nextButton)
@@ -139,7 +157,6 @@ private extension ProblemsSettingViewController {
         output?.addButtonDidTap
             .filter { $0 }
             .sink(receiveValue: { [weak self] _ in
-                print(self?.viewModel?.problems.count)
                 self?.tableView.reloadData()
             })
             .store(in: &subscriptions)
@@ -158,16 +175,19 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProblemTableViewCell") as! ProblemTableViewCell
-        let _ = self.viewModel?.problems[indexPath.row]
+        let problem = self.viewModel?.problems[indexPath.row]
         
         cell.contentConfiguration = UIHostingConfiguration {
             
-            HStack {
+            HStack(spacing: 15) {
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .fill(.black)
                     .frame(width: UIScreen.main.bounds.width / 5.5, height: UIScreen.main.bounds.width / 5.5)
                 
-               Spacer()
+                Text("\(problem?.difficulty ?? 0) 단계")
+                    .font(.system(size: 22, weight: .semibold))
+                
+                Spacer()
             }
         }
         

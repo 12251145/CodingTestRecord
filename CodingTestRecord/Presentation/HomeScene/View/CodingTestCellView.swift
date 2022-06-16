@@ -19,8 +19,6 @@ struct CodingTestCellView: View {
         self.setting = setting
         self.problems = setting.problemArr
         self.graphWidth = CGFloat(self.problems.count) * 12
-        
-        print(problems.count)
     }
     
     var body: some View {
