@@ -22,13 +22,13 @@ extension Int32 {
         return "\(hh)시 \(mm)분 \(ss)초"
     }
     
-    var hm: String {
+    var hhmm: String {
         if self < 0 { return "0시간" }
 
         let m = self / 60 % 60
         let h = self / 3600
 
-        let mm = "\(m / 60)"
+        let mm = "\(m)"
         let hh = "\(h)"
         
         return m == 0 ? "\(hh)시간" : "\(hh)시간 \(mm)분"

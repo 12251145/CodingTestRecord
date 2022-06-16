@@ -23,7 +23,7 @@ final class DefaultHomeCoordinator: HomeCoordinator {
         self.homeViewController.viewModel = HomeViewModel(
             coordinator: self,
             homeUseCase: DefaultHomeUseCase(
-                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService())
+                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared)
             )
         )
         self.navigationController.pushViewController(self.homeViewController, animated: true)

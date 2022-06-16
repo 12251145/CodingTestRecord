@@ -23,6 +23,7 @@ extension Problem {
     @NSManaged public var id: String?
     @NSManaged public var passAccuracyTest: Bool
     @NSManaged public var passEfficiencyTest: Bool
+    @NSManaged public var date: Date
     @NSManaged public var codingTest: CodingTestSetting?
 
 }

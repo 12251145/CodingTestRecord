@@ -11,4 +11,6 @@ import Foundation
 protocol CodingTestSettingUseCase {
     var codingTestSetting: CurrentValueSubject<CodingTestSetting, Never> { get set }
     func updateTitle(with text: String)
+    func updateTime(with time: Int32)
+    func addProblem()
 }

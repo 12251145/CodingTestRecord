@@ -51,7 +51,7 @@ final class HomeViewModel {
             .store(in: &subscriptions)
         
         self.homeUseCase.codingTests
-            .sink { codingTestSettings in
+            .sink { codingTestSettings in                
                 self.codingTestSettings = codingTestSettings
             }
             .store(in: &subscriptions)

@@ -12,6 +12,15 @@ final class CodingTestPreparationViewController: UIViewController {
     var viewModel: CodingTestPreparationViewModel?
     var subscriptions = Set<AnyCancellable>()
     
+    private lazy var startMessageLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "시작합니다"
+        label.font = UIFont.systemFont(ofSize: 50, weight: .semibold)
+        
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +34,13 @@ private extension CodingTestPreparationViewController {
         view.backgroundColor = .white
         self.navigationItem.hidesBackButton = true
         
+        view.addSubview(startMessageLabel)
+        startMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.startMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.startMessageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
     
     func bindViewModel() {

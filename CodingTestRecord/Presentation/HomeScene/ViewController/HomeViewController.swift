@@ -37,19 +37,6 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var addCodingTestButtonLabel: UILabel = {
-        var label = UILabel()
-        
-        let attributeString = NSMutableAttributedString(string: "")
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "plus")
-        attributeString.append(NSAttributedString(attachment: imageAttachment))
-        
-        label.attributedText = attributeString
-        
-        return label
-    }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .secondarySystemBackground
@@ -57,7 +44,7 @@ final class HomeViewController: UIViewController {
         tableView.separatorStyle = .singleLine
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         
         return tableView
     }()
@@ -92,7 +79,6 @@ final class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("View will appear")
         self.tableView.reloadData()
     }
     
@@ -177,7 +163,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
         let codingTestSetting = self.viewModel?.codingTestSettings[indexPath.row]
         
         cell.contentConfiguration = UIHostingConfiguration {
@@ -190,15 +176,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableViewCellDidSelectedSubject.send(indexPath.row)
-    }
-}
-
-class TableViewCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

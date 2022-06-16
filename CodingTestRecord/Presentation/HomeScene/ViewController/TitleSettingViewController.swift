@@ -69,7 +69,7 @@ private extension TitleSettingViewController {
         self.noticeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.noticeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
+            self.noticeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 5),
             self.noticeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
@@ -86,7 +86,7 @@ private extension TitleSettingViewController {
         self.nextButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -400),
+            self.nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             self.nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.nextButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),

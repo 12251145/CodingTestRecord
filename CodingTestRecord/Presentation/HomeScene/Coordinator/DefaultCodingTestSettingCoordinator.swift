@@ -29,6 +29,7 @@ final class DefaultCodingTestSettingCoordinator: CodingTestSettingCoordinator {
         titleSettingViewController.viewModel = TitleSettingViewModel(
             coordinator: self,
             codingTestSettingUseCase: DefaultCodingTestSettinguseCase(
+                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared),
                 codingTestSetting: settingData
             ),
             titleSettingUseCase: DefaultTitleSettingUseCase()
@@ -42,6 +43,7 @@ final class DefaultCodingTestSettingCoordinator: CodingTestSettingCoordinator {
         problemsSettingViewController.viewModel = ProblemsSettingViewModel(
             coordinator: self,
             codingTestSettingUseCase: DefaultCodingTestSettinguseCase(
+                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared),
                 codingTestSetting: settingData
             )
         )
@@ -54,6 +56,7 @@ final class DefaultCodingTestSettingCoordinator: CodingTestSettingCoordinator {
         timeSettingViewController.viewModel = TimeSettingViewModel(
             coordinator: self,
             codingTestSettingUseCase: DefaultCodingTestSettinguseCase(
+                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared),
                 codingTestSetting: settingData
             )
         )
@@ -65,7 +68,10 @@ final class DefaultCodingTestSettingCoordinator: CodingTestSettingCoordinator {
         let codingTestPreparationViewController = CodingTestPreparationViewController()
         codingTestPreparationViewController.viewModel = CodingTestPreparationViewModel(
             coordinator: self,
-            codingTestSettingUseCase: DefaultCodingTestSettinguseCase(codingTestSetting: settingData)
+            codingTestSettingUseCase: DefaultCodingTestSettinguseCase(
+                codingTestSettingRepository: DefaultCodingTestSettingRepository(coreDataService: DefaultCoreDataService.shared),
+                codingTestSetting: settingData
+            )
         )
         
         self.navigationController.pushViewController(codingTestPreparationViewController, animated: true)

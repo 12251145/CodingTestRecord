@@ -52,6 +52,7 @@ class DefaultCoreDataService: CoreDataService {
                 
                 let problem = Problem(context: self.context)
                 problem.setValue(UUID().uuidString, forKey: "id")
+                problem.setValue(Date(), forKey: "date")
                 problem.setValue(false, forKey: "checkEfficiency")
                 problem.setValue(false, forKey: "passAccuracyTest")
                 problem.setValue(false, forKey: "passEfficiencyTest")
@@ -71,5 +72,19 @@ class DefaultCoreDataService: CoreDataService {
         } else {
             return false
         }
+    }
+    
+    func createProblem() -> Problem {
+        let problem = Problem(context: self.context)
+        problem.setValue(UUID().uuidString, forKey: "id")
+        problem.setValue(Date(), forKey: "date")
+        problem.setValue(false, forKey: "checkEfficiency")
+        problem.setValue(false, forKey: "passAccuracyTest")
+        problem.setValue(false, forKey: "passEfficiencyTest")
+        problem.setValue(0, forKey: "accuracyTestPassTime")
+        problem.setValue(0, forKey: "efficiencyTestPassTime")
+        problem.setValue(Int.random(in: 1...5), forKey: "difficulty")
+        
+        return problem
     }
 }

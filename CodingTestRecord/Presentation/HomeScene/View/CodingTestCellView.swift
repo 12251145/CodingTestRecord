@@ -76,11 +76,13 @@ struct CodingTestLimitTimeView: View {
             
             Text(" ")
             
-            Text("\(m)")
-                .font(.system(.title2, weight: .semibold))
-            Text("분")
-                .font(.system(.title3, weight: .bold))
-                .foregroundColor(.secondary)
+            if m != 0 {
+                Text("\(m)")
+                    .font(.system(.title2, weight: .semibold))
+                Text("분")
+                    .font(.system(.title3, weight: .bold))
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }

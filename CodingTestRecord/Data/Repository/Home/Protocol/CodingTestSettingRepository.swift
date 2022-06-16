@@ -10,4 +10,5 @@ import Foundation
 protocol CodingTestSettingRepository {
     func loadCodingTestSettings() -> [CodingTestSetting]
     func addCodingTestSetting(_ title: String, _ timeLimit: Int) -> Bool
+    func addProblem(at codingTestSetting: CodingTestSetting)
 }
