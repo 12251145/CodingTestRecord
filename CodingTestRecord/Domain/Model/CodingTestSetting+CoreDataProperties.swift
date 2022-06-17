@@ -26,7 +26,7 @@ extension CodingTestSetting {
         let set = problems as? Set<Problem> ?? []
         
         return set.sorted {
-            $0.difficulty < $1.difficulty
+            $0.date < $1.date
         }
     }
 }

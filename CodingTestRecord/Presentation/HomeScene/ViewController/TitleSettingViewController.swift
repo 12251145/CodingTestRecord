@@ -47,6 +47,10 @@ final class TitleSettingViewController: UIViewController {
         
         button.configuration = config
         
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         return button
     }()
     
@@ -69,7 +73,7 @@ private extension TitleSettingViewController {
         self.noticeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.noticeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 5),
+            self.noticeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 6),
             self.noticeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
@@ -77,7 +81,7 @@ private extension TitleSettingViewController {
         self.titleTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.titleTextField.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 40),
+            self.titleTextField.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 80),
             self.titleTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.titleTextField.widthAnchor.constraint(equalToConstant: 300)
         ])
@@ -90,7 +94,7 @@ private extension TitleSettingViewController {
             self.nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.nextButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            self.nextButton.heightAnchor.constraint(equalToConstant: 44)
+            self.nextButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

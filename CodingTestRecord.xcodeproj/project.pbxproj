@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6A026C5B285A325A0003BB89 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */; };
 		6A026C5D285A32DE0003BB89 /* ProblemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */; };
-		6A026C5F285A36000003BB89 /* ProblemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A026C5E285A36000003BB89 /* ProblemCellView.swift */; };
 		6A31FE1F2858C94500AA8625 /* CodingTestSettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE1E2858C94500AA8625 /* CodingTestSettingCoordinator.swift */; };
 		6A31FE212858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE202858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift */; };
 		6A31FE232858CA3F00AA8625 /* TitleSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31FE222858CA3F00AA8625 /* TitleSettingViewController.swift */; };
@@ -38,6 +37,12 @@
 		6A360E71285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E70285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift */; };
 		6A360E73285B267F0092AA23 /* CodingTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E72285B267F0092AA23 /* CodingTesting.swift */; };
 		6A360E75285B61AC0092AA23 /* TimerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E74285B61AC0092AA23 /* TimerProgressView.swift */; };
+		6A360E77285C00840092AA23 /* CodingTestingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E76285C00840092AA23 /* CodingTestingViewCell.swift */; };
+		6A360E9A285C88150092AA23 /* ProblemSettingSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E99285C88150092AA23 /* ProblemSettingSheetViewController.swift */; };
+		6A360E9D285C88650092AA23 /* ProblemSettingSheetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360E9C285C88650092AA23 /* ProblemSettingSheetDelegate.swift */; };
+		6A360EA1285C95C50092AA23 /* ProblemSettingSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA0285C95C50092AA23 /* ProblemSettingSheetViewModel.swift */; };
+		6A360EA5285CBF010092AA23 /* ProblemSettingSheetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA4285CBF010092AA23 /* ProblemSettingSheetUseCase.swift */; };
+		6A360EA7285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA6285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift */; };
 		6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822C28587B6B009D843D /* CodingTestCellView.swift */; };
 		6A468232285893BC009D843D /* CodingTestSetting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */; };
 		6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */; };
@@ -79,7 +84,6 @@
 /* Begin PBXFileReference section */
 		6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
-		6A026C5E285A36000003BB89 /* ProblemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemCellView.swift; sourceTree = "<group>"; };
 		6A31FE1E2858C94500AA8625 /* CodingTestSettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestSettingCoordinator.swift; sourceTree = "<group>"; };
 		6A31FE202858C97500AA8625 /* DefaultCodingTestSettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingCoordinator.swift; sourceTree = "<group>"; };
 		6A31FE222858CA3F00AA8625 /* TitleSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSettingViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,12 @@
 		6A360E70285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestPreparationUseCase.swift; sourceTree = "<group>"; };
 		6A360E72285B267F0092AA23 /* CodingTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTesting.swift; sourceTree = "<group>"; };
 		6A360E74285B61AC0092AA23 /* TimerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressView.swift; sourceTree = "<group>"; };
+		6A360E76285C00840092AA23 /* CodingTestingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingViewCell.swift; sourceTree = "<group>"; };
+		6A360E99285C88150092AA23 /* ProblemSettingSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetViewController.swift; sourceTree = "<group>"; };
+		6A360E9C285C88650092AA23 /* ProblemSettingSheetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetDelegate.swift; sourceTree = "<group>"; };
+		6A360EA0285C95C50092AA23 /* ProblemSettingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetViewModel.swift; sourceTree = "<group>"; };
+		6A360EA4285CBF010092AA23 /* ProblemSettingSheetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetUseCase.swift; sourceTree = "<group>"; };
+		6A360EA6285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProblemSettingSheetUseCase.swift; sourceTree = "<group>"; };
 		6A46822C28587B6B009D843D /* CodingTestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestCellView.swift; sourceTree = "<group>"; };
 		6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -159,6 +169,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A360E98285C87DD0092AA23 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				6A360EA2285CBDCA0092AA23 /* UseCase */,
+				6A360E9E285C95A90092AA23 /* ViewController */,
+				6A360E9F285C95B20092AA23 /* ViewModel */,
+				6A360E9B285C88440092AA23 /* Protocol */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		6A360E9B285C88440092AA23 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6A360E9C285C88650092AA23 /* ProblemSettingSheetDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6A360E9E285C95A90092AA23 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6A360E99285C88150092AA23 /* ProblemSettingSheetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6A360E9F285C95B20092AA23 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A360EA0285C95C50092AA23 /* ProblemSettingSheetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6A360EA2285CBDCA0092AA23 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6A360EA6285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift */,
+				6A360EA3285CBDD60092AA23 /* Protocol */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		6A360EA3285CBDD60092AA23 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6A360EA4285CBF010092AA23 /* ProblemSettingSheetUseCase.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		6A541FAB28577AAB000008D4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +424,7 @@
 				6A31FE3A2859DD0300AA8625 /* TimeSettingViewController.swift */,
 				6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */,
 				6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */,
+				6A360E98285C87DD0092AA23 /* Sheet */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -370,11 +433,11 @@
 			isa = PBXGroup;
 			children = (
 				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
-				6A026C5E285A36000003BB89 /* ProblemCellView.swift */,
 				6A31FE3028597F4B00AA8625 /* CursorDisabledTextField.swift */,
 				6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */,
 				6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */,
 				6A360E74285B61AC0092AA23 /* TimerProgressView.swift */,
+				6A360E76285C00840092AA23 /* CodingTestingViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,6 +661,7 @@
 				6ADA1BBA28573261009E41AD /* DefaultRecordsCoordinator.swift in Sources */,
 				6ADA1BC228573357009E41AD /* RecordsViewController.swift in Sources */,
 				6A31FE47285A193800AA8625 /* CodingTestingViewModel.swift in Sources */,
+				6A360EA7285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift in Sources */,
 				6ADA1B922857198E009E41AD /* AppCoordinator.swift in Sources */,
 				6A31FE252858CA9600AA8625 /* TitleSettingViewModel.swift in Sources */,
 				6ADD0B312857103200884C5D /* AppDelegate.swift in Sources */,
@@ -619,11 +683,14 @@
 				6ADA1B8C285717A5009E41AD /* Coordinator.swift in Sources */,
 				6ADA1B9828571B5C009E41AD /* DefaultTabBarCoordinator.swift in Sources */,
 				6ADA1B9428571A35009E41AD /* DefaultAppCoordinator.swift in Sources */,
+				6A360E77285C00840092AA23 /* CodingTestingViewCell.swift in Sources */,
 				6A31FE392859C15500AA8625 /* ProblemsSettingViewModel.swift in Sources */,
 				6A31FE3B2859DD0300AA8625 /* TimeSettingViewController.swift in Sources */,
 				6ADA1BC728576BDB009E41AD /* Model.xcdatamodeld in Sources */,
 				6ADA1B9A28572667009E41AD /* TabBarPage.swift in Sources */,
+				6A360EA5285CBF010092AA23 /* ProblemSettingSheetUseCase.swift in Sources */,
 				6A31FE49285A195300AA8625 /* CodingTestingUseCase.swift in Sources */,
+				6A360EA1285C95C50092AA23 /* ProblemSettingSheetViewModel.swift in Sources */,
 				6A360E73285B267F0092AA23 /* CodingTesting.swift in Sources */,
 				6ADA1BAC28572B45009E41AD /* HomeUseCase.swift in Sources */,
 				6A31FE3D2859DD2500AA8625 /* TimeSettingViewModel.swift in Sources */,
@@ -632,8 +699,8 @@
 				6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */,
 				6ADA1BB628573214009E41AD /* RecordsViewModel.swift in Sources */,
 				6A31FE4D285A1E3300AA8625 /* CodingTestPreparationViewController.swift in Sources */,
-				6A026C5F285A36000003BB89 /* ProblemCellView.swift in Sources */,
 				6A026C5D285A32DE0003BB89 /* ProblemTableViewCell.swift in Sources */,
+				6A360E9D285C88650092AA23 /* ProblemSettingSheetDelegate.swift in Sources */,
 				6A541FAE28579084000008D4 /* CodingTestSettingRepository.swift in Sources */,
 				6A31FE3F2859E82B00AA8625 /* UIColor + CustomColor.swift in Sources */,
 				6ADA1BA828572AD7009E41AD /* HomeViewModel.swift in Sources */,
@@ -647,6 +714,7 @@
 				6A31FE4F285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift in Sources */,
 				6ADA1BC428574839009E41AD /* UIControl + ButtonPublisher.swift in Sources */,
 				6ADA1BBE285732D2009E41AD /* RecordsUseCase.swift in Sources */,
+				6A360E9A285C88150092AA23 /* ProblemSettingSheetViewController.swift in Sources */,
 				6A541FAA285775E0000008D4 /* DefaultCoreDataService.swift in Sources */,
 				6A360E75285B61AC0092AA23 /* TimerProgressView.swift in Sources */,
 				6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */,

@@ -90,6 +90,10 @@ final class TimeSettingViewController: UIViewController {
         
         button.configuration = config
         
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         return button
     }()
     
@@ -101,6 +105,10 @@ final class TimeSettingViewController: UIViewController {
         config.title = "시작"
         
         button.configuration = config
+        
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         
         return button
     }()
@@ -180,8 +188,8 @@ private extension TimeSettingViewController {
             self.doneStartButtonHStack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.doneStartButtonHStack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             
-            self.doneButton.heightAnchor.constraint(equalToConstant: 44),
-            self.startButton.heightAnchor.constraint(equalToConstant: 44),
+            self.doneButton.heightAnchor.constraint(equalToConstant: 50),
+            self.startButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

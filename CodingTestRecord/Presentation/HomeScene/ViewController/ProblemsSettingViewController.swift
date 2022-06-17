@@ -70,6 +70,10 @@ final class ProblemsSettingViewController: UIViewController {
         
         button.configuration = config
         
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         return button
     }()
     
@@ -100,7 +104,7 @@ private extension ProblemsSettingViewController {
         self.noticeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.noticeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 5),
+            self.noticeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 6),
             self.noticeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
@@ -108,7 +112,7 @@ private extension ProblemsSettingViewController {
         self.addProblemButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.addProblemButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 25),
+            self.addProblemButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor, constant: 50),
             self.addProblemButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
 
@@ -116,7 +120,7 @@ private extension ProblemsSettingViewController {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.addProblemButton.bottomAnchor, constant: 30),
+            self.tableView.topAnchor.constraint(equalTo: self.addProblemButton.bottomAnchor, constant: 55),
             self.tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -140,7 +144,7 @@ private extension ProblemsSettingViewController {
             self.nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.nextButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            self.nextButton.heightAnchor.constraint(equalToConstant: 44)
+            self.nextButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -165,6 +169,10 @@ private extension ProblemsSettingViewController {
 
 
 extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (UIScreen.main.bounds.width / 5.5) + 32
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel?.problems.count ?? 0
     }
@@ -180,14 +188,35 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
         cell.contentConfiguration = UIHostingConfiguration {
             
             HStack(spacing: 15) {
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .fill(.black)
-                    .frame(width: UIScreen.main.bounds.width / 5.5, height: UIScreen.main.bounds.width / 5.5)
-                
-                Text("\(problem?.difficulty ?? 0) 단계")
-                    .font(.system(size: 22, weight: .semibold))
+                ZStack(alignment: .center) {
+                    RoundedRectangle(cornerRadius: 17, style: .continuous)
+                        .fill(.black)
+                        .frame(width: UIScreen.main.bounds.width / 5.5, height: UIScreen.main.bounds.width / 5.5)
+                    
+                    Text("\(problem?.difficulty ?? 0)")
+                        .font(.system(size: 30, weight: .regular))
+                        .foregroundColor(.pink)
+                        
+                }
+                .padding(0)
                 
                 Spacer()
+                
+                HStack(spacing: 25) {
+                    if problem?.checkEfficiency ?? false {
+                        Image(systemName: "bolt.horizontal.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(.green)
+                    }
+                        
+                    
+                    Image(systemName: "checkmark.seal.fill")
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(.green)
+                }
             }
         }
         
@@ -196,6 +225,32 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let problem = self.viewModel?.problems[indexPath.row] {
+            
+            let problemSettingSheetViewController = ProblemSettingSheetViewController()
+            problemSettingSheetViewController.viewModel = ProblemSettingSheetViewModel(
+                delegate: self,
+                problemSettingSheetUseCase: DefaultProblemSettingSheetUseCase(
+                    currentDifficulty: Int(problem.difficulty),
+                    checkEfficiency: problem.checkEfficiency
+                )
+            )
+            problemSettingSheetViewController.problem = self.viewModel?.problems[indexPath.row]
+            
+            if let sheet = problemSettingSheetViewController.sheetPresentationController {
+                sheet.detents = [.custom(resolver: { context in
+                    0.35 * context.maximumDetentValue
+                })]
+                sheet.prefersGrabberVisible = true
+            }
+            
+            present(problemSettingSheetViewController, animated: true)
+        }
+    }
+}
+
+extension ProblemsSettingViewController: ProblemSettingSheetDelegate {
+    func reloadTableView() {
+        self.tableView.reloadData()
     }
 }

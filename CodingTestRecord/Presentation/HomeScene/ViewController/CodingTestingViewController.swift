@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 import UIKit
 
 final class CodingTestingViewController: UIViewController {
@@ -33,6 +34,10 @@ final class CodingTestingViewController: UIViewController {
         
         button.configuration = config
         
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         return button
     }()
     
@@ -45,8 +50,34 @@ final class CodingTestingViewController: UIViewController {
         
         button.configuration = config
         
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         return button
     }()
+    
+    private lazy var devider: UIView = {
+        let rect = UIView()
+        
+        rect.backgroundColor = .secondarySystemBackground
+        
+        return rect
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .singleLine
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delaysContentTouches = false
+        tableView.register(CodingTestingViewCell.self, forCellReuseIdentifier: "CodingTestingViewCell")
+        
+        return tableView
+    }()
+    
+    
     
     private lazy var cancelEndButtonHStack: UIStackView = {
         let hStack = UIStackView()
@@ -57,6 +88,8 @@ final class CodingTestingViewController: UIViewController {
         
         return hStack
     }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,14 +102,16 @@ final class CodingTestingViewController: UIViewController {
 // MARK: - Private Functions
 private extension CodingTestingViewController {
     func configureUI() {
+        
         view.backgroundColor = .white
         self.navigationItem.hidesBackButton = true
+        self.navigationItem.title = "타이틀 와야 함"
         
         view.addSubview(self.timerLabel)
         self.timerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.timerLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 6),
+            self.timerLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 7),
             self.timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
@@ -84,8 +119,28 @@ private extension CodingTestingViewController {
         self.progressView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.progressView.topAnchor.constraint(equalTo: self.timerLabel.bottomAnchor, constant: 40),
+            self.progressView.topAnchor.constraint(equalTo: self.timerLabel.bottomAnchor, constant: 50),
             self.progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        self.view.addSubview(self.tableView)
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.tableView.topAnchor.constraint(equalTo: self.progressView.bottomAnchor, constant: 110),
+            self.tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            self.tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        self.view.addSubview(self.devider)
+        self.devider.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.devider.bottomAnchor.constraint(equalTo: self.tableView.topAnchor),
+            self.devider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.devider.widthAnchor.constraint(equalTo: view.widthAnchor),
+            self.devider.heightAnchor.constraint(equalToConstant: 2)
         ])
         
         view.addSubview(self.cancelEndButtonHStack)
@@ -97,12 +152,12 @@ private extension CodingTestingViewController {
         self.cancelEndButtonHStack.addArrangedSubview(self.endButton)
         
         NSLayoutConstraint.activate([
-            self.cancelEndButtonHStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            self.cancelEndButtonHStack.bottomAnchor.constraint(equalTo: self.tableView.topAnchor, constant: -20),
             self.cancelEndButtonHStack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.cancelEndButtonHStack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             
-            self.cancelButton.heightAnchor.constraint(equalToConstant: 44),
-            self.endButton.heightAnchor.constraint(equalToConstant: 44),
+            self.cancelButton.heightAnchor.constraint(equalToConstant: 50),
+            self.endButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -130,5 +185,33 @@ private extension CodingTestingViewController {
     
     func createProgressView() -> UIProgressView {
         return TimerProgressView(width: UIScreen.main.bounds.width * 0.8, color: .systemPink)
+    }
+}
+
+extension CodingTestingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (UIScreen.main.bounds.width / 5.5) + 16
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "CodingTestingViewCell",
+            for: indexPath) as? CodingTestingViewCell else { return UITableViewCell() }
+
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
