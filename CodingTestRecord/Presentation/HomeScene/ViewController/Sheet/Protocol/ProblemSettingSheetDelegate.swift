@@ -8,5 +8,7 @@
 import Foundation
 
 protocol ProblemSettingSheetDelegate {
+    func updateProblemSetting(difficulty: Int32, checkEfficiency: Bool, index: Int)
+    func deleteProblem(index: Int)
     func reloadTableView()
 }

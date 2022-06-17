@@ -11,12 +11,16 @@ import Charts
 struct CodingTestCellView: View {
     var setting: CodingTestSetting
     var problems: [Problem]
+    var title: String
+    var timeLimit: Int
     var graphWidth: CGFloat
     let width = UIScreen.main.bounds.width - 32
     let height = (UIScreen.main.bounds.width - 32) / 4
     
     init(setting: CodingTestSetting) {
         self.setting = setting
+        self.title = setting.title ?? ""
+        self.timeLimit = Int(setting.timeLimit)
         self.problems = setting.problemArr
         self.graphWidth = CGFloat(self.problems.count) * 12
     }
@@ -24,13 +28,13 @@ struct CodingTestCellView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
-                Text(setting.title ?? "")
+                Text(title)
                     .font(.system(.title, weight: .bold))
                     .lineLimit(1)                
                     
                     
                 
-                CodingTestLimitTimeView(time: Int(setting.timeLimit))
+                CodingTestLimitTimeView(time: Int(timeLimit))
             }
             
             Spacer()

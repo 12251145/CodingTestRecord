@@ -12,6 +12,7 @@ import UIKit
 final class ProblemsSettingViewController: UIViewController {
     var viewModel: ProblemsSettingViewModel?
     var subscriptions = Set<AnyCancellable>()
+    var deleteButtonDidTap = PassthroughSubject<Int, Never>()
     
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
@@ -151,6 +152,7 @@ private extension ProblemsSettingViewController {
     func bindViewModel() {
         let output = viewModel?.transform(
             from: ProblemsSettingViewModel.Input(
+                deleteButtonDidTap: self.deleteButtonDidTap.eraseToAnyPublisher(),
                 viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
                 addProblemButtonDidTap: self.addProblemButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
                 nextButtonDidTap: self.nextButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
@@ -231,6 +233,7 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
             problemSettingSheetViewController.viewModel = ProblemSettingSheetViewModel(
                 delegate: self,
                 problemSettingSheetUseCase: DefaultProblemSettingSheetUseCase(
+                    index: indexPath.row,
                     currentDifficulty: Int(problem.difficulty),
                     checkEfficiency: problem.checkEfficiency
                 )
@@ -250,6 +253,16 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension ProblemsSettingViewController: ProblemSettingSheetDelegate {
+    func updateProblemSetting(difficulty: Int32, checkEfficiency: Bool, index: Int) {
+        self.viewModel?.problems[index].difficulty = difficulty
+        self.viewModel?.problems[index].checkEfficiency = checkEfficiency
+        self.tableView.reloadData()
+    }
+    
+    func deleteProblem(index: Int) {
+        self.deleteButtonDidTap.send(index)
+    }
+    
     func reloadTableView() {
         self.tableView.reloadData()
     }

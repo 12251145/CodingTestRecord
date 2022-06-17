@@ -30,7 +30,7 @@ final class DefaultTabBarCoordinator: TabBarCoordinator {
     private func configureTabBarController(with tabViewControllers: [UIViewController]) {
         self.tabBarController.setViewControllers(tabViewControllers, animated: true)
         self.tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
-        self.tabBarController.tabBar.backgroundColor = .white
+        self.tabBarController.tabBar.backgroundColor = .secondarySystemBackground
         
         self.navigationController.pushViewController(self.tabBarController, animated: true)
     }

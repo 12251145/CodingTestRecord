@@ -10,13 +10,16 @@ import UIKit
 import Foundation
 
 final class DefaultProblemSettingSheetUseCase: ProblemSettingSheetUseCase {
+    var index: Int
     var currentDifficulty: CurrentValueSubject<Int, Never>
     var currentCheckEfficiency: CurrentValueSubject<Bool, Never>
     
     init(
+        index: Int,
         currentDifficulty: Int,
         checkEfficiency: Bool
     ) {
+        self.index = index
         self.currentDifficulty = CurrentValueSubject<Int, Never>(currentDifficulty)
         self.currentCheckEfficiency = CurrentValueSubject<Bool, Never>(checkEfficiency)
     }

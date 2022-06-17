@@ -13,7 +13,7 @@ class ProblemSettingSheetViewController: UIViewController {
     var problem: Problem?
     var subscriptions = Set<AnyCancellable>()
     
-    private lazy var doneButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton()
         
         var config = UIButton.Configuration.filled()
@@ -129,7 +129,7 @@ class ProblemSettingSheetViewController: UIViewController {
         bindViewModel()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.viewModel?.delegate?.reloadTableView()
     }
 }
@@ -138,12 +138,12 @@ private extension ProblemSettingSheetViewController {
     func configureUI() {
         view.backgroundColor = .white
         
-        view.addSubview(self.doneButton)
-        self.doneButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(self.saveButton)
+        self.saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.doneButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
-            self.doneButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12)
+            self.saveButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
+            self.saveButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12)
         ])
         
         view.addSubview(self.deleteButton)
@@ -159,7 +159,7 @@ private extension ProblemSettingSheetViewController {
         firstDevider.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            firstDevider.topAnchor.constraint(equalTo: self.doneButton.bottomAnchor, constant: 12),
+            firstDevider.topAnchor.constraint(equalTo: self.saveButton.bottomAnchor, constant: 12),
             firstDevider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             firstDevider.widthAnchor.constraint(equalTo: view.widthAnchor),
             firstDevider.heightAnchor.constraint(equalToConstant: 1)
@@ -219,15 +219,24 @@ private extension ProblemSettingSheetViewController {
         let output = self.viewModel?.transform(from: ProblemSettingSheetViewModel.Input(
             switchEvent: self.checkSwitch.controlPublisher(for: .valueChanged).eraseToAnyPublisher(),
             difficultyUpButtonDidTap: self.difficultyUpButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
-            difficultyDownButtonDidTap: self.difficultyDownButton.publisher(for: .touchUpInside).eraseToAnyPublisher()),
+            difficultyDownButtonDidTap: self.difficultyDownButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
+            saveButtonDidTap: self.saveButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
+            deleteButtonDidTap: self.deleteButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
+        ),
                                   subscriptions: &subscriptions
         )
         
         output?.currentDifficulty
             .map { String($0) }
             .sink(receiveValue: { newValue in
-                
                 self.currentDifficultyLabel.text = newValue
+            })
+            .store(in: &subscriptions)
+        
+        output?.shouldDismiss
+            .filter { $0 }
+            .sink(receiveValue: { _ in
+                self.dismiss(animated: true)
             })
             .store(in: &subscriptions)
     }

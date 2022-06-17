@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
         
         config.image = UIImage(systemName: "plus", withConfiguration: imageConfig)
         config.baseForegroundColor = .systemPink
-        config.baseBackgroundColor = .white
+        config.baseBackgroundColor = .secondarySystemBackground
         config.cornerStyle = .capsule
         
         button.configuration = config
@@ -39,7 +39,7 @@ final class HomeViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .secondarySystemBackground
+        tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .singleLine
         tableView.delegate = self
@@ -92,7 +92,7 @@ final class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func configureUI() {
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .white
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem()
@@ -169,7 +169,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentConfiguration = UIHostingConfiguration {
             CodingTestCellView(setting: codingTestSetting!)
         }
-        .background(Color(.secondarySystemBackground))
+        .background(.white)
         
         return cell
     }

@@ -20,6 +20,7 @@ final class ProblemsSettingViewModel {
     }
     
     struct Input {
+        var deleteButtonDidTap: AnyPublisher<Int, Never>
         var viewDidLoadEvent: AnyPublisher<Void, Never>
         var addProblemButtonDidTap: AnyPublisher<Void, Never>
         var nextButtonDidTap: AnyPublisher<Void, Never>
@@ -31,6 +32,12 @@ final class ProblemsSettingViewModel {
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
         let output = Output()
+        
+        input.deleteButtonDidTap
+            .sink { index in
+                self.codingTestSettingUseCase.deleteProblem(self.problems[index])
+            }
+            .store(in: &subscriptions)
         
         input.addProblemButtonDidTap
             .sink { [weak self] _ in

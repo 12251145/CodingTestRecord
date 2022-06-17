@@ -27,4 +27,8 @@ final class DefaultCodingTestSettingRepository: CodingTestSettingRepository {
         
         problem.codingTest = codingTestSetting
     }
+    
+    func deleteProblem(_ problem: Problem, at codingTestSetting: CodingTestSetting) {
+        codingTestSetting.removeFromProblems(problem)
+    }
 }

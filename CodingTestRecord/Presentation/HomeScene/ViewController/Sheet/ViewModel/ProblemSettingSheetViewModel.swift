@@ -25,9 +25,12 @@ final class ProblemSettingSheetViewModel {
         var switchEvent: AnyPublisher<UISwitch, Never>
         var difficultyUpButtonDidTap: AnyPublisher<Void, Never>
         var difficultyDownButtonDidTap: AnyPublisher<Void, Never>
+        var saveButtonDidTap: AnyPublisher<Void, Never>
+        var deleteButtonDidTap: AnyPublisher<Void, Never>
     }
     
     struct Output {
+        var shouldDismiss = CurrentValueSubject<Bool, Never>(false)
         var currentDifficulty = CurrentValueSubject<Int, Never>(0)
     }
     
@@ -49,6 +52,23 @@ final class ProblemSettingSheetViewModel {
         input.difficultyDownButtonDidTap
             .sink { _ in
                 self.problemSettingSheetUseCase.downDifficulty()
+            }
+            .store(in: &subscriptions)
+        
+        input.saveButtonDidTap
+            .sink { _ in
+                self.delegate?.updateProblemSetting(difficulty: Int32(self.problemSettingSheetUseCase.currentDifficulty.value),
+                                                    checkEfficiency: self.problemSettingSheetUseCase.currentCheckEfficiency.value,
+                                                    index: self.problemSettingSheetUseCase.index
+                )
+                output.shouldDismiss.send(true)
+            }
+            .store(in: &subscriptions)
+        
+        input.deleteButtonDidTap
+            .sink { _ in
+                self.delegate?.deleteProblem(index: self.problemSettingSheetUseCase.index)
+                output.shouldDismiss.send(true)
             }
             .store(in: &subscriptions)
         

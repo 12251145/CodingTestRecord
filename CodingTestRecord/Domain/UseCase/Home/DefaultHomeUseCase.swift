@@ -22,14 +22,22 @@ final class DefaultHomeUseCase: HomeUseCase {
     
     func addCodingTest() {
         if self.codingTestSettingRepository.addCodingTestSetting("노란회사 인턴", 18000) {
+            
             self.loadCodingTestSettings()
         }
     }
     
     func loadCodingTestSettings() {
-        self.codingTests.value = self.sortedCodintTestSettings(
+//        self.codingTests.value = self.sortedCodintTestSettings(
+//            list: self.codingTestSettingRepository.loadCodingTestSettings()
+//        )
+        
+        let newValue = self.sortedCodintTestSettings(
             list: self.codingTestSettingRepository.loadCodingTestSettings()
         )
+        
+        
+        self.codingTests.send(newValue)
     }
     
     func sortedCodintTestSettings(list: [CodingTestSetting]) -> [CodingTestSetting] {

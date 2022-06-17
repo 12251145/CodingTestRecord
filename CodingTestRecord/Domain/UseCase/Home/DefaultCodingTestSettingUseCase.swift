@@ -22,10 +22,12 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
     }
     
     func updateTitle(with text: String) {
-        let newValue = self.codingTestSetting.value
-        newValue.title = text
+//        let newValue = self.codingTestSetting.value
+//        newValue.title = text
+//
+//        self.codingTestSetting.send(newValue)
         
-        self.codingTestSetting.send(newValue)
+        self.codingTestSetting.value.title = text
     }
     
     func updateTime(with time: Int32) {
@@ -37,6 +39,12 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
     
     func addProblem() {
         self.codingTestSettingRepository.addProblem(at: self.codingTestSetting.value)
+        
+        self.codingTestSetting.send(self.codingTestSetting.value)
+    }
+    
+    func deleteProblem(_ problem: Problem) {
+        self.codingTestSettingRepository.deleteProblem(problem, at: self.codingTestSetting.value)
         
         self.codingTestSetting.send(self.codingTestSetting.value)
     }

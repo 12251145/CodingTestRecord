@@ -9,7 +9,9 @@ import Combine
 import UIKit
 
 protocol ProblemSettingSheetUseCase {
+    var index: Int { get }
     var currentDifficulty: CurrentValueSubject<Int, Never> { get set }
+    var currentCheckEfficiency: CurrentValueSubject<Bool, Never> { get set }
     
     func upDifficulty()
     func downDifficulty()
