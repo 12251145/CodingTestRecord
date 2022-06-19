@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21223.11" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CodingTestResult" representedClassName="CodingTestResult" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="timeLimit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="problems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Problem" inverseName="codingTestResult" inverseEntity="Problem"/>
+    </entity>
     <entity name="CodingTestSetting" representedClassName="CodingTestSetting" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="String"/>
@@ -19,12 +26,15 @@
         <attribute name="difficulty" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="efficiencyTestPassTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="passAccuracyTest" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="passEfficiencyTest" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="codingTest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CodingTestSetting" inverseName="problems" inverseEntity="CodingTestSetting"/>
+        <relationship name="codingTestResult" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CodingTestResult" inverseName="problems" inverseEntity="CodingTestResult"/>
     </entity>
     <elements>
+        <element name="CodingTestResult" positionX="-54" positionY="54" width="128" height="104"/>
         <element name="CodingTestSetting" positionX="-63" positionY="27" width="128" height="104"/>
-        <element name="Problem" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="Problem" positionX="-63" positionY="-18" width="128" height="194"/>
     </elements>
 </model>

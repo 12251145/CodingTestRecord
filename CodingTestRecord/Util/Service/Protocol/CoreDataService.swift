@@ -13,4 +13,5 @@ protocol CoreDataService {
     func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T]
     func addCodingTestSetting(_ title: String, _ timeLimit: Int) -> Bool
     func createProblem() -> Problem
+    func createCodingTestResult(by codingTesting: CodingTesting) -> CodingTestResult?
 }

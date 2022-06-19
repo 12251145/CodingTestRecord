@@ -206,10 +206,10 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
                 
                 HStack(spacing: 25) {
                     if problem?.checkEfficiency ?? false {
-                        Image(systemName: "bolt.horizontal.circle.fill")
+                        Image(systemName: "bolt.square.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 28, height: 28)
+                            .frame(width: 25, height: 25)
                             .foregroundColor(.green)
                     }
                         

@@ -51,6 +51,7 @@ struct CodingTestCellView: View {
             .chartYAxis(.hidden)
             .frame(width: graphWidth, height: 50)
         }
+        .tint(.pink)
         .padding(.horizontal, 5)
         .chartYScale(domain: -5...5)
         .frame(width: width, height: height)

@@ -34,4 +34,17 @@ final class DefaultCodingTestingCoordinator: CodingTestingCoordinator {
         
         self.navigationController.pushViewController(codingTestingViewController, animated: true)
     }
+    
+    func pushCodingTestResultViewController(with result: CodingTesting) {
+        let codingTestResultViewController = CodingTestResultViewController()
+        codingTestResultViewController.viewModel = CodingTestResultViewModel(
+            coordinator: self,
+            codingTestResultUseCase: DefaultCodingTestResultUseCase(
+                codingTestResultRepository: DefaultCodingTestResultRepository(coreDataService: DefaultCoreDataService.shared),
+                codingTesting: result
+            )
+        )
+        
+        self.navigationController.pushViewController(codingTestResultViewController, animated: true)
+    }
 }

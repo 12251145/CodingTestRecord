@@ -87,4 +87,36 @@ class DefaultCoreDataService: CoreDataService {
         
         return problem
     }
+    
+    func createCodingTestResult(by codingTesting: CodingTesting) -> CodingTestResult? {
+        let entity = NSEntityDescription.entity(forEntityName: "CodingTestResult", in: self.context)
+        
+        if let entity = entity {
+            let managedObject = NSManagedObject(entity: entity, insertInto: self.context) as! CodingTestResult
+            
+            managedObject.setValue(UUID().uuidString, forKey: "id")
+            managedObject.setValue(codingTesting.title, forKey: "title")
+            managedObject.setValue(codingTesting.timeLimit, forKey: "timeLimit")
+            
+            for i in 0..<codingTesting.problems.count {
+                
+                let problem = Problem(context: self.context)
+                problem.setValue(UUID().uuidString, forKey: "id")
+                problem.setValue(Date(), forKey: "date")
+                problem.setValue(i, forKey: "index")
+                problem.setValue(codingTesting.problems[i].checkEfficiency, forKey: "checkEfficiency")
+                problem.setValue(codingTesting.problems[i].passAccuracyTest, forKey: "passAccuracyTest")
+                problem.setValue(codingTesting.problems[i].passEfficiencyTest, forKey: "passEfficiencyTest")
+                problem.setValue(codingTesting.problems[i].accuracyTestPassTime, forKey: "accuracyTestPassTime")
+                problem.setValue(codingTesting.problems[i].efficiencyTestPassTime, forKey: "efficiencyTestPassTime")
+                problem.setValue(codingTesting.problems[i].difficulty, forKey: "difficulty")
+                
+                problem.codingTestResult = managedObject
+            }
+            
+            return managedObject
+        } else {
+            return nil
+        }
+    }
 }

@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 final class DefaultCodingTestingUseCase: CodingTestingUseCase {
+    var isTimeOver = CurrentValueSubject<Bool, Never>(false)
     var codingTesting: CurrentValueSubject<CodingTesting, Never>
     var subscriptions = Set<AnyCancellable>()
     
@@ -43,11 +44,29 @@ final class DefaultCodingTestingUseCase: CodingTestingUseCase {
             }
             .store(in: &subscriptions)
     }
+    
+    func updateCodintTesting(index: Int, passKind: PassKind, isPass: Bool) {
+        let newValue = self.codingTesting.value
+        if passKind == .accuracy {
+            newValue.problems[index].passAccuracyTest = isPass
+            newValue.problems[index].accuracyTestPassTime = isPass ? (self.codingTesting.value.timeLimit - self.codingTesting.value.leftTime) : 0
+        } else {
+            newValue.problems[index].passEfficiencyTest = isPass
+            newValue.problems[index].efficiencyTestPassTime = isPass ? (self.codingTesting.value.timeLimit - self.codingTesting.value.leftTime) : 0
+        }
+        
+        self.codingTesting.send(newValue)
+    }
 }
 
 // MARK: - Private Functions
 private extension DefaultCodingTestingUseCase {
     func updateTimer(with time: Int) {
+        if time <= 0 {
+            self.subscriptions.removeAll()
+            self.isTimeOver.send(true)
+        }
+        
         var newValue = self.codingTesting.value
         newValue.leftTime = Int32(time)
         

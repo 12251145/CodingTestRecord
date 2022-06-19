@@ -12,6 +12,7 @@ import UIKit
 final class CodingTestingViewController: UIViewController {
     var viewModel: CodingTestingViewModel?
     var subscriptions = Set<AnyCancellable>()
+    var passUpdateEvent = PassthroughSubject<(Int, PassKind, Bool), Never>()
     
     private lazy var timerLabel: UILabel = {
         let label = UILabel()
@@ -71,7 +72,6 @@ final class CodingTestingViewController: UIViewController {
         tableView.separatorStyle = .singleLine
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.delaysContentTouches = false
         tableView.register(CodingTestingViewCell.self, forCellReuseIdentifier: "CodingTestingViewCell")
         
         return tableView
@@ -164,11 +164,19 @@ private extension CodingTestingViewController {
     func bindViewModel() {
         let output = self.viewModel?.transform(
             from: CodingTestingViewModel.Input(
+                passUpdateEvent: self.passUpdateEvent.eraseToAnyPublisher(),
                 viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
-                cancelButtonDidTap: self.cancelButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
+                cancelButtonDidTap: self.cancelButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
+                endButtonDidTap: self.endButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
             ),
             subscriptions: &subscriptions
         )
+        
+        output?.title
+            .sink(receiveValue: { title in
+                self.navigationItem.title = title
+            })
+            .store(in: &subscriptions)
         
         output?.leftTime
             .sink(receiveValue: { [weak self] leftTime in
@@ -190,11 +198,11 @@ private extension CodingTestingViewController {
 
 extension CodingTestingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (UIScreen.main.bounds.width / 5.5) + 16
+        return (UIScreen.main.bounds.width / 5.5) + 32
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return self.viewModel?.problems.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -206,12 +214,28 @@ extension CodingTestingViewController: UITableViewDelegate, UITableViewDataSourc
             withIdentifier: "CodingTestingViewCell",
             for: indexPath) as? CodingTestingViewCell else { return UITableViewCell() }
 
+        if let problem = self.viewModel?.problems[indexPath.row] {
+            
+            cell.viewModel = CodingTestingCellViewModel(
+                delegate: self,
+                codingTesingCellUseCase: DefaultCodingTestingCellUseCase(
+                    index: indexPath.row, problem: problem
+                )
+            )
+        }
+        
         cell.selectionStyle = .none
         
         return cell
     }
+}
+
+extension CodingTestingViewController: CodingTestingCellDelegate {
+    func updatePassState(index: Int, kind: PassKind, isPass: Bool) {
+        self.passUpdateEvent.send((index, kind, isPass))
+    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func reloadTableView() {
+        self.tableView.reloadData()
     }
 }

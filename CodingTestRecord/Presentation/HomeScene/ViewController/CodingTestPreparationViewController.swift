@@ -16,7 +16,7 @@ final class CodingTestPreparationViewController: UIViewController {
         let label = UILabel()
         
         label.text = "시작합니다"
-        label.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 35, weight: .semibold)
         
         return label
     }()

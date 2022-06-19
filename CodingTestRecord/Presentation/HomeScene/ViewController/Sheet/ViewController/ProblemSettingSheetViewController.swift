@@ -233,6 +233,12 @@ private extension ProblemSettingSheetViewController {
             })
             .store(in: &subscriptions)
         
+        output?.checkEfficiency
+            .sink(receiveValue: { isOn in
+                self.checkSwitch.isOn = isOn
+            })
+            .store(in: &subscriptions)
+        
         output?.shouldDismiss
             .filter { $0 }
             .sink(receiveValue: { _ in

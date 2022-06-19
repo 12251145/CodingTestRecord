@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CodingTestingCoordinator: Coordinator {
-    
+    func pushCodingTestingViewController(with settingData: CodingTestSetting)
+    func pushCodingTestResultViewController(with result: CodingTesting)
 }

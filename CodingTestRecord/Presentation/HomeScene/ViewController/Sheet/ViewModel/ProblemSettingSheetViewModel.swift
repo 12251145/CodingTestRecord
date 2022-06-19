@@ -9,6 +9,8 @@ import Combine
 import Foundation
 import UIKit
 
+
+
 final class ProblemSettingSheetViewModel {
     var delegate: ProblemSettingSheetDelegate?
     var problemSettingSheetUseCase: ProblemSettingSheetUseCase
@@ -32,6 +34,7 @@ final class ProblemSettingSheetViewModel {
     struct Output {
         var shouldDismiss = CurrentValueSubject<Bool, Never>(false)
         var currentDifficulty = CurrentValueSubject<Int, Never>(0)
+        var checkEfficiency = CurrentValueSubject<Bool, Never>(false)
     }
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
@@ -75,6 +78,12 @@ final class ProblemSettingSheetViewModel {
         self.problemSettingSheetUseCase.currentDifficulty
             .sink { newDifficulty in
                 output.currentDifficulty.send(newDifficulty)
+            }
+            .store(in: &subscriptions)
+        
+        self.problemSettingSheetUseCase.currentCheckEfficiency
+            .sink { isOn in
+                output.checkEfficiency.send(isOn)
             }
             .store(in: &subscriptions)
             

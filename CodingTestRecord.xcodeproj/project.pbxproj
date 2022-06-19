@@ -43,6 +43,10 @@
 		6A360EA1285C95C50092AA23 /* ProblemSettingSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA0285C95C50092AA23 /* ProblemSettingSheetViewModel.swift */; };
 		6A360EA5285CBF010092AA23 /* ProblemSettingSheetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA4285CBF010092AA23 /* ProblemSettingSheetUseCase.swift */; };
 		6A360EA7285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA6285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift */; };
+		6A360EA9285D60F20092AA23 /* CodingTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EA8285D60F20092AA23 /* CodingTestResultViewController.swift */; };
+		6A360EAB285D61190092AA23 /* CodingTestResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EAA285D61190092AA23 /* CodingTestResultViewModel.swift */; };
+		6A360EAD285D61C80092AA23 /* CodingTestResultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EAC285D61C80092AA23 /* CodingTestResultUseCase.swift */; };
+		6A360EAF285D61D90092AA23 /* DefaultCondingTestResultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A360EAE285D61D90092AA23 /* DefaultCondingTestResultUseCase.swift */; };
 		6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822C28587B6B009D843D /* CodingTestCellView.swift */; };
 		6A468232285893BC009D843D /* CodingTestSetting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */; };
 		6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */; };
@@ -53,6 +57,22 @@
 		6A541FB0285790A7000008D4 /* DefaultCodingTestSettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */; };
 		6A541FB328579112000008D4 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB228579112000008D4 /* CoreDataService.swift */; };
 		6A541FB52858530E000008D4 /* Int32 + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB42858530E000008D4 /* Int32 + Formatter.swift */; };
+		6A851F38285E04CF0072096C /* CodingTestTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F37285E04CF0072096C /* CodingTestTimelineCell.swift */; };
+		6A851F3A285E06840072096C /* CodingTestTimelineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F39285E06840072096C /* CodingTestTimelineCellViewModel.swift */; };
+		6A851F3C285E076F0072096C /* CodingTestTimelineCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F3B285E076F0072096C /* CodingTestTimelineCellDelegate.swift */; };
+		6A851F3F285E07AF0072096C /* CodingTestTimelineCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F3E285E07AF0072096C /* CodingTestTimelineCellUseCase.swift */; };
+		6A851F41285E07CB0072096C /* DefaultCodingTestTimelineCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F40285E07CB0072096C /* DefaultCodingTestTimelineCellUseCase.swift */; };
+		6A851F45285E0A5D0072096C /* PassKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F44285E0A5D0072096C /* PassKind.swift */; };
+		6A851F47285E0F9A0072096C /* Int + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F46285E0F9A0072096C /* Int + Formatter.swift */; };
+		6A851F49285E180C0072096C /* ProblemEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F48285E180C0072096C /* ProblemEvent.swift */; };
+		6AADBCB8285D6C05003F92F7 /* CodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */; };
+		6AADBCBA285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */; };
+		6AADBCC0285D7866003F92F7 /* CodingTestingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */; };
+		6AADBCC2285D7905003F92F7 /* CodingTestingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCC1285D7905003F92F7 /* CodingTestingCellViewModel.swift */; };
+		6AADBCC5285D7B3C003F92F7 /* CodingTestingCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCC4285D7B3C003F92F7 /* CodingTestingCellUseCase.swift */; };
+		6AADBCC8285D7B60003F92F7 /* DefaultCodingTestingCellCuseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCC7285D7B60003F92F7 /* DefaultCodingTestingCellCuseCase.swift */; };
+		6AADBCCB285DC6B6003F92F7 /* CodingTestResult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCC9285DC6B6003F92F7 /* CodingTestResult+CoreDataClass.swift */; };
+		6AADBCCC285DC6B6003F92F7 /* CodingTestResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCCA285DC6B6003F92F7 /* CodingTestResult+CoreDataProperties.swift */; };
 		6ADA1B8C285717A5009E41AD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8B285717A5009E41AD /* Coordinator.swift */; };
 		6ADA1B8E285717D5009E41AD /* CoordinatorDidFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8D285717D5009E41AD /* CoordinatorDidFinishDelegate.swift */; };
 		6ADA1B902857185C009E41AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA1B8F2857185C009E41AD /* CoordinatorType.swift */; };
@@ -118,6 +138,10 @@
 		6A360EA0285C95C50092AA23 /* ProblemSettingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetViewModel.swift; sourceTree = "<group>"; };
 		6A360EA4285CBF010092AA23 /* ProblemSettingSheetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSettingSheetUseCase.swift; sourceTree = "<group>"; };
 		6A360EA6285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProblemSettingSheetUseCase.swift; sourceTree = "<group>"; };
+		6A360EA8285D60F20092AA23 /* CodingTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultViewController.swift; sourceTree = "<group>"; };
+		6A360EAA285D61190092AA23 /* CodingTestResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultViewModel.swift; sourceTree = "<group>"; };
+		6A360EAC285D61C80092AA23 /* CodingTestResultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultUseCase.swift; sourceTree = "<group>"; };
+		6A360EAE285D61D90092AA23 /* DefaultCondingTestResultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCondingTestResultUseCase.swift; sourceTree = "<group>"; };
 		6A46822C28587B6B009D843D /* CodingTestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestCellView.swift; sourceTree = "<group>"; };
 		6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -128,6 +152,22 @@
 		6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingRepository.swift; sourceTree = "<group>"; };
 		6A541FB228579112000008D4 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6A541FB42858530E000008D4 /* Int32 + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int32 + Formatter.swift"; sourceTree = "<group>"; };
+		6A851F37285E04CF0072096C /* CodingTestTimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCell.swift; sourceTree = "<group>"; };
+		6A851F39285E06840072096C /* CodingTestTimelineCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCellViewModel.swift; sourceTree = "<group>"; };
+		6A851F3B285E076F0072096C /* CodingTestTimelineCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCellDelegate.swift; sourceTree = "<group>"; };
+		6A851F3E285E07AF0072096C /* CodingTestTimelineCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCellUseCase.swift; sourceTree = "<group>"; };
+		6A851F40285E07CB0072096C /* DefaultCodingTestTimelineCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestTimelineCellUseCase.swift; sourceTree = "<group>"; };
+		6A851F44285E0A5D0072096C /* PassKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassKind.swift; sourceTree = "<group>"; };
+		6A851F46285E0F9A0072096C /* Int + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Formatter.swift"; sourceTree = "<group>"; };
+		6A851F48285E180C0072096C /* ProblemEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemEvent.swift; sourceTree = "<group>"; };
+		6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultRepository.swift; sourceTree = "<group>"; };
+		6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestResultRepository.swift; sourceTree = "<group>"; };
+		6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellDelegate.swift; sourceTree = "<group>"; };
+		6AADBCC1285D7905003F92F7 /* CodingTestingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellViewModel.swift; sourceTree = "<group>"; };
+		6AADBCC4285D7B3C003F92F7 /* CodingTestingCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellUseCase.swift; sourceTree = "<group>"; };
+		6AADBCC7285D7B60003F92F7 /* DefaultCodingTestingCellCuseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestingCellCuseCase.swift; sourceTree = "<group>"; };
+		6AADBCC9285DC6B6003F92F7 /* CodingTestResult+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestResult+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6AADBCCA285DC6B6003F92F7 /* CodingTestResult+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6ADA1B8B285717A5009E41AD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6ADA1B8D285717D5009E41AD /* CoordinatorDidFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDidFinishDelegate.swift; sourceTree = "<group>"; };
 		6ADA1B8F2857185C009E41AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -225,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */,
+				6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */,
 				6A541FAC28577AB3000008D4 /* Protocol */,
 			);
 			path = Home;
@@ -234,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				6A541FAD28579084000008D4 /* CodingTestSettingRepository.swift */,
+				6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -242,6 +284,110 @@
 			isa = PBXGroup;
 			children = (
 				6A541FB228579112000008D4 /* CoreDataService.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6A851F32285E04680072096C /* CodingTestTimelineCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F36285E049F0072096C /* UseCase */,
+				6A851F35285E04900072096C /* Delegate */,
+				6A851F34285E048B0072096C /* View */,
+				6A851F33285E04840072096C /* ViewModel */,
+			);
+			path = CodingTestTimelineCell;
+			sourceTree = "<group>";
+		};
+		6A851F33285E04840072096C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F39285E06840072096C /* CodingTestTimelineCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6A851F34285E048B0072096C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F37285E04CF0072096C /* CodingTestTimelineCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A851F35285E04900072096C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F3B285E076F0072096C /* CodingTestTimelineCellDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		6A851F36285E049F0072096C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F40285E07CB0072096C /* DefaultCodingTestTimelineCellUseCase.swift */,
+				6A851F3D285E079F0072096C /* Protocol */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		6A851F3D285E079F0072096C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F3E285E07AF0072096C /* CodingTestTimelineCellUseCase.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6AADBCBB285D7668003F92F7 /* CodingTestingCell */ = {
+			isa = PBXGroup;
+			children = (
+				6AADBCC3285D7B2F003F92F7 /* UseCase */,
+				6AADBCBE285D7693003F92F7 /* Delegate */,
+				6AADBCBD285D7689003F92F7 /* View */,
+				6AADBCBC285D767C003F92F7 /* ViewModel */,
+			);
+			path = CodingTestingCell;
+			sourceTree = "<group>";
+		};
+		6AADBCBC285D767C003F92F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6AADBCC1285D7905003F92F7 /* CodingTestingCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6AADBCBD285D7689003F92F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A360E76285C00840092AA23 /* CodingTestingViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6AADBCBE285D7693003F92F7 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		6AADBCC3285D7B2F003F92F7 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6AADBCC7285D7B60003F92F7 /* DefaultCodingTestingCellCuseCase.swift */,
+				6AADBCC6285D7B54003F92F7 /* Protocol */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		6AADBCC6285D7B54003F92F7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6AADBCC4285D7B3C003F92F7 /* CodingTestingCellUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -340,11 +486,14 @@
 		6ADA1B872857151C009E41AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6AADBCC9285DC6B6003F92F7 /* CodingTestResult+CoreDataClass.swift */,
+				6AADBCCA285DC6B6003F92F7 /* CodingTestResult+CoreDataProperties.swift */,
 				6A46822E285893BC009D843D /* CodingTestSetting+CoreDataClass.swift */,
 				6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */,
 				6A468230285893BC009D843D /* Problem+CoreDataClass.swift */,
 				6A468231285893BC009D843D /* Problem+CoreDataProperties.swift */,
 				6A360E72285B267F0092AA23 /* CodingTesting.swift */,
+				6A851F48285E180C0072096C /* ProblemEvent.swift */,
 				6ADA1BC528576BDA009E41AD /* Model.xcdatamodeld */,
 			);
 			path = Model;
@@ -367,6 +516,7 @@
 				6ADA1BC328574839009E41AD /* UIControl + ButtonPublisher.swift */,
 				6A31FE2C2859605600AA8625 /* UIControl + ControlPublisher.swift */,
 				6A541FB42858530E000008D4 /* Int32 + Formatter.swift */,
+				6A851F46285E0F9A0072096C /* Int + Formatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -376,6 +526,7 @@
 			children = (
 				6ADA1B8F2857185C009E41AD /* CoordinatorType.swift */,
 				6ADA1B9928572667009E41AD /* TabBarPage.swift */,
+				6A851F44285E0A5D0072096C /* PassKind.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -411,6 +562,7 @@
 				6A31FE3C2859DD2500AA8625 /* TimeSettingViewModel.swift */,
 				6A31FE4E285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift */,
 				6A31FE46285A193800AA8625 /* CodingTestingViewModel.swift */,
+				6A360EAA285D61190092AA23 /* CodingTestResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -424,6 +576,7 @@
 				6A31FE3A2859DD0300AA8625 /* TimeSettingViewController.swift */,
 				6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */,
 				6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */,
+				6A360EA8285D60F20092AA23 /* CodingTestResultViewController.swift */,
 				6A360E98285C87DD0092AA23 /* Sheet */,
 			);
 			path = ViewController;
@@ -437,7 +590,8 @@
 				6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */,
 				6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */,
 				6A360E74285B61AC0092AA23 /* TimerProgressView.swift */,
-				6A360E76285C00840092AA23 /* CodingTestingViewCell.swift */,
+				6A851F32285E04680072096C /* CodingTestTimelineCell */,
+				6AADBCBB285D7668003F92F7 /* CodingTestingCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +615,7 @@
 				6A31FE342859B6DF00AA8625 /* DefaultTitleSettingUseCase.swift */,
 				6A360E70285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift */,
 				6A31FE4A285A195E00AA8625 /* DefaultCodingTestingUseCase.swift */,
+				6A360EAE285D61D90092AA23 /* DefaultCondingTestResultUseCase.swift */,
 				6ADA1BAA28572B3C009E41AD /* Protocol */,
 			);
 			path = Home;
@@ -474,6 +629,7 @@
 				6A31FE322859B53100AA8625 /* TitleSettingUseCase.swift */,
 				6A360E6E285B1D480092AA23 /* CodingTestPreparationUseCase.swift */,
 				6A31FE48285A195300AA8625 /* CodingTestingUseCase.swift */,
+				6A360EAC285D61C80092AA23 /* CodingTestResultUseCase.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -657,28 +813,34 @@
 			files = (
 				6A541FB328579112000008D4 /* CoreDataService.swift in Sources */,
 				6A541FB0285790A7000008D4 /* DefaultCodingTestSettingRepository.swift in Sources */,
+				6AADBCBA285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift in Sources */,
 				6A31FE1F2858C94500AA8625 /* CodingTestSettingCoordinator.swift in Sources */,
+				6AADBCC8285D7B60003F92F7 /* DefaultCodingTestingCellCuseCase.swift in Sources */,
 				6ADA1BBA28573261009E41AD /* DefaultRecordsCoordinator.swift in Sources */,
 				6ADA1BC228573357009E41AD /* RecordsViewController.swift in Sources */,
 				6A31FE47285A193800AA8625 /* CodingTestingViewModel.swift in Sources */,
 				6A360EA7285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift in Sources */,
 				6ADA1B922857198E009E41AD /* AppCoordinator.swift in Sources */,
 				6A31FE252858CA9600AA8625 /* TitleSettingViewModel.swift in Sources */,
+				6A360EA9285D60F20092AA23 /* CodingTestResultViewController.swift in Sources */,
 				6ADD0B312857103200884C5D /* AppDelegate.swift in Sources */,
 				6A31FE292858CB2A00AA8625 /* DefaultCodingTestSettingUseCase.swift in Sources */,
 				6ADA1B9628571AF6009E41AD /* TabBarCoordinator.swift in Sources */,
 				6A31FE45285A193000AA8625 /* CodingTestingViewController.swift in Sources */,
 				6ADD0B332857103200884C5D /* SceneDelegate.swift in Sources */,
 				6A026C5B285A325A0003BB89 /* HomeTableViewCell.swift in Sources */,
+				6A851F3F285E07AF0072096C /* CodingTestTimelineCellUseCase.swift in Sources */,
 				6A468235285893BC009D843D /* Problem+CoreDataProperties.swift in Sources */,
 				6A31FE2B2858D40F00AA8625 /* SettingCoordinatorDidFinishDelegate.swift in Sources */,
 				6ADA1B8E285717D5009E41AD /* CoordinatorDidFinishDelegate.swift in Sources */,
 				6A468234285893BC009D843D /* Problem+CoreDataClass.swift in Sources */,
 				6A31FE232858CA3F00AA8625 /* TitleSettingViewController.swift in Sources */,
+				6A851F45285E0A5D0072096C /* PassKind.swift in Sources */,
 				6A360E6F285B1D480092AA23 /* CodingTestPreparationUseCase.swift in Sources */,
 				6ADA1BB828573244009E41AD /* RecordsCoordinator.swift in Sources */,
 				6A31FE332859B53100AA8625 /* TitleSettingUseCase.swift in Sources */,
 				6A360E71285B1D520092AA23 /* DefaultCodingTestPreparationUseCase.swift in Sources */,
+				6A851F3A285E06840072096C /* CodingTestTimelineCellViewModel.swift in Sources */,
 				6A31FE4B285A195E00AA8625 /* DefaultCodingTestingUseCase.swift in Sources */,
 				6ADA1B8C285717A5009E41AD /* Coordinator.swift in Sources */,
 				6ADA1B9828571B5C009E41AD /* DefaultTabBarCoordinator.swift in Sources */,
@@ -687,6 +849,8 @@
 				6A31FE392859C15500AA8625 /* ProblemsSettingViewModel.swift in Sources */,
 				6A31FE3B2859DD0300AA8625 /* TimeSettingViewController.swift in Sources */,
 				6ADA1BC728576BDB009E41AD /* Model.xcdatamodeld in Sources */,
+				6A360EAB285D61190092AA23 /* CodingTestResultViewModel.swift in Sources */,
+				6AADBCB8285D6C05003F92F7 /* CodingTestResultRepository.swift in Sources */,
 				6ADA1B9A28572667009E41AD /* TabBarPage.swift in Sources */,
 				6A360EA5285CBF010092AA23 /* ProblemSettingSheetUseCase.swift in Sources */,
 				6A31FE49285A195300AA8625 /* CodingTestingUseCase.swift in Sources */,
@@ -694,17 +858,25 @@
 				6A360E73285B267F0092AA23 /* CodingTesting.swift in Sources */,
 				6ADA1BAC28572B45009E41AD /* HomeUseCase.swift in Sources */,
 				6A31FE3D2859DD2500AA8625 /* TimeSettingViewModel.swift in Sources */,
+				6AADBCCB285DC6B6003F92F7 /* CodingTestResult+CoreDataClass.swift in Sources */,
 				6A541FB52858530E000008D4 /* Int32 + Formatter.swift in Sources */,
 				6ADA1BAE28572B5E009E41AD /* DefaultHomeUseCase.swift in Sources */,
 				6A468233285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift in Sources */,
+				6AADBCCC285DC6B6003F92F7 /* CodingTestResult+CoreDataProperties.swift in Sources */,
 				6ADA1BB628573214009E41AD /* RecordsViewModel.swift in Sources */,
+				6A851F38285E04CF0072096C /* CodingTestTimelineCell.swift in Sources */,
+				6A360EAD285D61C80092AA23 /* CodingTestResultUseCase.swift in Sources */,
 				6A31FE4D285A1E3300AA8625 /* CodingTestPreparationViewController.swift in Sources */,
 				6A026C5D285A32DE0003BB89 /* ProblemTableViewCell.swift in Sources */,
 				6A360E9D285C88650092AA23 /* ProblemSettingSheetDelegate.swift in Sources */,
+				6AADBCC5285D7B3C003F92F7 /* CodingTestingCellUseCase.swift in Sources */,
 				6A541FAE28579084000008D4 /* CodingTestSettingRepository.swift in Sources */,
+				6A851F49285E180C0072096C /* ProblemEvent.swift in Sources */,
+				6A851F41285E07CB0072096C /* DefaultCodingTestTimelineCellUseCase.swift in Sources */,
 				6A31FE3F2859E82B00AA8625 /* UIColor + CustomColor.swift in Sources */,
 				6ADA1BA828572AD7009E41AD /* HomeViewModel.swift in Sources */,
 				6ADA1BA428572A1B009E41AD /* DefaultHomeCoordinator.swift in Sources */,
+				6AADBCC0285D7866003F92F7 /* CodingTestingCellDelegate.swift in Sources */,
 				6ADA1B902857185C009E41AD /* CoordinatorType.swift in Sources */,
 				6ADA1BA628572A9D009E41AD /* HomeViewController.swift in Sources */,
 				6A31FE272858CB1800AA8625 /* CodingTestSettingUseCase.swift in Sources */,
@@ -713,13 +885,17 @@
 				6ADA1BC0285732E2009E41AD /* DefaultRecordsUseCase.swift in Sources */,
 				6A31FE4F285A1E5A00AA8625 /* CodingTestPreparationViewModel.swift in Sources */,
 				6ADA1BC428574839009E41AD /* UIControl + ButtonPublisher.swift in Sources */,
+				6AADBCC2285D7905003F92F7 /* CodingTestingCellViewModel.swift in Sources */,
 				6ADA1BBE285732D2009E41AD /* RecordsUseCase.swift in Sources */,
 				6A360E9A285C88150092AA23 /* ProblemSettingSheetViewController.swift in Sources */,
 				6A541FAA285775E0000008D4 /* DefaultCoreDataService.swift in Sources */,
+				6A360EAF285D61D90092AA23 /* DefaultCondingTestResultUseCase.swift in Sources */,
 				6A360E75285B61AC0092AA23 /* TimerProgressView.swift in Sources */,
 				6A46822D28587B6B009D843D /* CodingTestCellView.swift in Sources */,
+				6A851F3C285E076F0072096C /* CodingTestTimelineCellDelegate.swift in Sources */,
 				6A31FE372859C14700AA8625 /* ProblemsSettingViewController.swift in Sources */,
 				6A468232285893BC009D843D /* CodingTestSetting+CoreDataClass.swift in Sources */,
+				6A851F47285E0F9A0072096C /* Int + Formatter.swift in Sources */,
 				6A31FE43285A166800AA8625 /* DefaultCodingTestingCoordinator.swift in Sources */,
 				6A31FE41285A163100AA8625 /* CodingTestingCoordinator.swift in Sources */,
 				6ADA1BA228572A01009E41AD /* HomeCoordinator.swift in Sources */,
