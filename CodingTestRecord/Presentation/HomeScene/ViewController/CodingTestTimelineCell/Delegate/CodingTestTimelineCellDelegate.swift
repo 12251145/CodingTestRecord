@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CodingTestTimelineCellDelegate {
+protocol CodingTestTimelineCellDelegate: AnyObject {
     
 }

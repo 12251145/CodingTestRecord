@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 final class CodingTestTimelineCellViewModel {
-    var delegate: CodingTestTimelineCellDelegate?
+    weak var delegate: CodingTestTimelineCellDelegate?
     var codingTestTimelineCellUseCase: CodingTestTimelineCellUseCase
     
     init(

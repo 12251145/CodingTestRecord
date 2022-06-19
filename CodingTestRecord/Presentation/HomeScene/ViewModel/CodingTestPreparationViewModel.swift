@@ -23,6 +23,8 @@ final class CodingTestPreparationViewModel {
         self.codingTestPreparationgUseCase = codingTestPreparationgUseCase
     }
     
+    
+    
     struct Input {
         var viewDidLoadEvent: AnyPublisher<Void, Never>
     }

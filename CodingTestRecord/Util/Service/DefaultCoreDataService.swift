@@ -88,12 +88,42 @@ class DefaultCoreDataService: CoreDataService {
         return problem
     }
     
+    func createCodingTesting(by codingTestSetting: CodingTestSetting) -> CodingTesting {        
+        var problems: [Problem] = []
+        
+        for i in 0..<codingTestSetting.problemArr.count {
+            let problem  = Problem(context: self.context)
+            problem.setValue(UUID().uuidString, forKey: "id")
+            problem.setValue(Date(), forKey: "date")
+            problem.setValue(codingTestSetting.problemArr[i].checkEfficiency, forKey: "checkEfficiency")
+            problem.setValue(false, forKey: "passAccuracyTest")
+            problem.setValue(false, forKey: "passEfficiencyTest")
+            problem.setValue(0, forKey: "accuracyTestPassTime")
+            problem.setValue(0, forKey: "efficiencyTestPassTime")
+            problem.setValue(codingTestSetting.problemArr[i].difficulty, forKey: "difficulty")
+            
+            problems.append(problem)
+        }
+        
+        let codingTesting = CodingTesting(
+            date: Date(),
+            title: codingTestSetting.title ?? "",
+            timeLimit: codingTestSetting.timeLimit,
+            leftTime: codingTestSetting.timeLimit,
+            problems: problems
+        )
+        
+        return codingTesting
+    }
+    
     func createCodingTestResult(by codingTesting: CodingTesting) -> CodingTestResult? {
+        
         let entity = NSEntityDescription.entity(forEntityName: "CodingTestResult", in: self.context)
         
         if let entity = entity {
             let managedObject = NSManagedObject(entity: entity, insertInto: self.context) as! CodingTestResult
             
+            managedObject.setValue(Date(), forKey: "date")
             managedObject.setValue(UUID().uuidString, forKey: "id")
             managedObject.setValue(codingTesting.title, forKey: "title")
             managedObject.setValue(codingTesting.timeLimit, forKey: "timeLimit")

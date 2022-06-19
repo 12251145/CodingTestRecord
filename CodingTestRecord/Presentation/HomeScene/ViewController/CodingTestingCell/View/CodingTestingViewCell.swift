@@ -12,7 +12,6 @@ class CodingTestingViewCell: UITableViewCell {
     var viewModel: CodingTestingCellViewModel?
     var subscriptions = Set<AnyCancellable>()
     
-    
     private lazy var problemLabel: UILabel = {
         let label = UILabel()
         
@@ -105,7 +104,7 @@ private extension CodingTestingViewCell {
         ])
     }
     
-    func bindViewModel() {
+    func bindViewModel() {        
         let output = self.viewModel?.transform(
             from: CodingTestingCellViewModel.Input(
                 passAccuracySwitchEvent: self.accuracyPassSwitch.controlPublisher(for: .valueChanged).eraseToAnyPublisher(),
@@ -115,15 +114,15 @@ private extension CodingTestingViewCell {
         )
         
         output?.currentDifficulty
-            .sink(receiveValue: { difficulty in
-                self.problemLabel.text = "\(difficulty)"
+            .sink(receiveValue: { [weak self] difficulty in
+                self?.problemLabel.text = "\(difficulty)"
             })
             .store(in: &subscriptions)
         
         output?.showEfficiencySwitch
-            .sink(receiveValue: { showSwitch in
+            .sink(receiveValue: { [weak self] showSwitch in
                 if !showSwitch {
-                    self.efficiencyPassSwitch.removeFromSuperview()
+                    self?.efficiencyPassSwitch.removeFromSuperview()
                 }
             })
             .store(in: &subscriptions)

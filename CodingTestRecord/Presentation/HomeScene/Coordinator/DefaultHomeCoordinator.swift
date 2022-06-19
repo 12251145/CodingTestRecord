@@ -49,13 +49,14 @@ extension DefaultHomeCoordinator: CoordinatorDidFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         self.childCoordinators = self.childCoordinators.filter({ $0.type != childCoordinator.type })
         
+        childCoordinator.navigationController.navigationBar.prefersLargeTitles = false
         childCoordinator.navigationController.popToRootViewController(animated: true)
     }
 }
 
 extension DefaultHomeCoordinator: SettingCoordinatorDidFinishDelegate {
     func settingCoordinatorDidFinish(with settingData: CodingTestSetting) {
-        
+
         self.showCodingTestingFlow(with: settingData)
     }
 }

@@ -20,7 +20,7 @@ final class CodingTestingViewModel {
         self.coordinator = coordinator
         self.codingTestingUseCase = codingTestSettingUseCase
     }
-    
+
     struct Input {
         var passUpdateEvent: AnyPublisher<(Int, PassKind, Bool), Never>
         var viewDidLoadEvent: AnyPublisher<Void, Never>
@@ -38,27 +38,27 @@ final class CodingTestingViewModel {
         let output = Output()
         
         input.passUpdateEvent
-            .sink { index, passKind, isPass in
-                self.codingTestingUseCase.updateCodintTesting(index: index, passKind: passKind, isPass: isPass)                
+            .sink { [weak self] index, passKind, isPass in
+                self?.codingTestingUseCase.updateCodintTesting(index: index, passKind: passKind, isPass: isPass)
             }
             .store(in: &subscriptions)
         
         input.viewDidLoadEvent
-            .sink { _ in
-                self.codingTestingUseCase.executeTimer()
+            .sink { [weak self] _ in
+                self?.codingTestingUseCase.executeTimer()
             }
             .store(in: &subscriptions)
                 
         input.cancelButtonDidTap
-            .sink { _ in
-                self.codingTestingUseCase.subscriptions.removeAll()
-                self.coordinator?.finish()
+            .sink { [weak self] _ in
+                self?.codingTestingUseCase.subscriptions.removeAll()
+                self?.coordinator?.finish()
             }
             .store(in: &subscriptions)
         
         input.endButtonDidTap
-            .sink { _ in
-                self.coordinator?.pushCodingTestResultViewController(with: self.codingTestingUseCase.codingTesting.value)
+            .sink { [weak self] _ in
+                self?.coordinator?.pushCodingTestResultViewController(with: (self?.codingTestingUseCase.codingTesting.value)!)
             }
             .store(in: &subscriptions)
         
@@ -71,22 +71,24 @@ final class CodingTestingViewModel {
         
         self.codingTestingUseCase.codingTesting
             .map { $0.leftTime }
-            .sink { leftTime in
+            .sink { leftTime in                
                 output.leftTime.send(leftTime)
+                
             }
             .store(in: &subscriptions)
         
         self.codingTestingUseCase.codingTesting
-            .sink { codingTesting in
+            .sink { [weak self] codingTesting in
                 output.progress.send((Float(codingTesting.timeLimit) - Float(codingTesting.leftTime)) / Float(codingTesting.timeLimit))
-                self.problems = codingTesting.problems
+                self?.problems = codingTesting.problems                
+                
             }
             .store(in: &subscriptions)
             
         self.codingTestingUseCase.isTimeOver
             .filter{ $0 }
-            .sink { _ in
-                self.coordinator?.pushCodingTestResultViewController(with: self.codingTestingUseCase.codingTesting.value)
+            .sink { [weak self] _ in
+                self?.coordinator?.pushCodingTestResultViewController(with: (self?.codingTestingUseCase.codingTesting.value)!)
             }
             .store(in: &subscriptions)
         

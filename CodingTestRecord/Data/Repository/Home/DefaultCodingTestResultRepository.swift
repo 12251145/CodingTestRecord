@@ -14,7 +14,15 @@ final class DefaultCodingTestResultRepository: CodingTestResultRepository {
         self.coreDataService = coreDataService
     }
     
+    func loadCodingTestResults() -> [CodingTestResult] {
+        return self.coreDataService.fetch(request: CodingTestResult.fetchRequest())
+    }
+    
     func getCodingTestResult(by codingTesting: CodingTesting) -> CodingTestResult? {
         return self.coreDataService.createCodingTestResult(by: codingTesting)
+    }
+    
+    func getCodingTesting(by codingTestSetting: CodingTestSetting) -> CodingTesting {
+        return self.coreDataService.createCodingTesting(by: codingTestSetting)
     }
 }

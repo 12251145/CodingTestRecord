@@ -14,6 +14,8 @@ final class CodingTestingViewController: UIViewController {
     var subscriptions = Set<AnyCancellable>()
     var passUpdateEvent = PassthroughSubject<(Int, PassKind, Bool), Never>()
     
+    
+    
     private lazy var timerLabel: UILabel = {
         let label = UILabel()
         
@@ -173,8 +175,8 @@ private extension CodingTestingViewController {
         )
         
         output?.title
-            .sink(receiveValue: { title in
-                self.navigationItem.title = title
+            .sink(receiveValue: { [weak self] title in
+                self?.navigationItem.title = title
             })
             .store(in: &subscriptions)
         

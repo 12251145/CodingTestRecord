@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CodingTestingCellDelegate {
+protocol CodingTestingCellDelegate: AnyObject {
     func updatePassState(index: Int, kind: PassKind, isPass: Bool)
     
     func reloadTableView()

@@ -228,21 +228,21 @@ private extension ProblemSettingSheetViewController {
         
         output?.currentDifficulty
             .map { String($0) }
-            .sink(receiveValue: { newValue in
-                self.currentDifficultyLabel.text = newValue
+            .sink(receiveValue: { [weak self] newValue in
+                self?.currentDifficultyLabel.text = newValue
             })
             .store(in: &subscriptions)
         
         output?.checkEfficiency
-            .sink(receiveValue: { isOn in
-                self.checkSwitch.isOn = isOn
+            .sink(receiveValue: { [weak self] isOn in
+                self?.checkSwitch.isOn = isOn
             })
             .store(in: &subscriptions)
         
         output?.shouldDismiss
             .filter { $0 }
-            .sink(receiveValue: { _ in
-                self.dismiss(animated: true)
+            .sink(receiveValue: { [weak self] _ in
+                self?.dismiss(animated: true)
             })
             .store(in: &subscriptions)
     }

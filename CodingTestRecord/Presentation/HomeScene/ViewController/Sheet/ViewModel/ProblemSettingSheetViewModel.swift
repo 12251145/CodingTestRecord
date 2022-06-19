@@ -41,36 +41,36 @@ final class ProblemSettingSheetViewModel {
         let output = Output()
         
         input.switchEvent
-            .sink { control in
-                self.problemSettingSheetUseCase.updateCheckEfficiency(state: control.isOn)
+            .sink { [weak self] control in
+                self?.problemSettingSheetUseCase.updateCheckEfficiency(state: control.isOn)
             }
             .store(in: &subscriptions)
         
         input.difficultyUpButtonDidTap
-            .sink { _ in
-                self.problemSettingSheetUseCase.upDifficulty()
+            .sink { [weak self] _ in
+                self?.problemSettingSheetUseCase.upDifficulty()
             }
             .store(in: &subscriptions)
         
         input.difficultyDownButtonDidTap
-            .sink { _ in
-                self.problemSettingSheetUseCase.downDifficulty()
+            .sink { [weak self] _ in
+                self?.problemSettingSheetUseCase.downDifficulty()
             }
             .store(in: &subscriptions)
         
         input.saveButtonDidTap
-            .sink { _ in
-                self.delegate?.updateProblemSetting(difficulty: Int32(self.problemSettingSheetUseCase.currentDifficulty.value),
-                                                    checkEfficiency: self.problemSettingSheetUseCase.currentCheckEfficiency.value,
-                                                    index: self.problemSettingSheetUseCase.index
+            .sink { [weak self] _ in
+                self?.delegate?.updateProblemSetting(difficulty: Int32(self?.problemSettingSheetUseCase.currentDifficulty.value ?? 0),
+                                                    checkEfficiency: self?.problemSettingSheetUseCase.currentCheckEfficiency.value ?? false,
+                                                    index: self?.problemSettingSheetUseCase.index ?? 0
                 )
                 output.shouldDismiss.send(true)
             }
             .store(in: &subscriptions)
         
         input.deleteButtonDidTap
-            .sink { _ in
-                self.delegate?.deleteProblem(index: self.problemSettingSheetUseCase.index)
+            .sink { [weak self] _ in
+                self?.delegate?.deleteProblem(index: self?.problemSettingSheetUseCase.index ?? 0)
                 output.shouldDismiss.send(true)
             }
             .store(in: &subscriptions)

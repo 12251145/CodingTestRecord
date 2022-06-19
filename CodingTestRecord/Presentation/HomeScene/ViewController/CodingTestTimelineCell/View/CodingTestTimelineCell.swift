@@ -85,7 +85,7 @@ final class CodingTestTimelineCell: UITableViewCell {
         let label = UILabel()
         
         label.text = "00:32:17"
-        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .black
         
         return label
@@ -189,35 +189,35 @@ private extension CodingTestTimelineCell {
         )
         
         output?.passTime
-            .sink(receiveValue: { passTime in
-                self.timeLabel.text = passTime
+            .sink(receiveValue: { [weak self] passTime in
+                self?.timeLabel.text = passTime
             })
             .store(in: &subscriptions)
         
         output?.takeTime
-            .sink(receiveValue: { takeTime in
-                self.takeTimeLabel.text = takeTime
+            .sink(receiveValue: { [weak self] takeTime in
+                self?.takeTimeLabel.text = takeTime
             })
             .store(in: &subscriptions)
         
         output?.index
-            .sink(receiveValue: { index in
-                self.problemIndexBadge.text = index
+            .sink(receiveValue: { [weak self] index in
+                self?.problemIndexBadge.text = index
             })
             .store(in: &subscriptions)
         
         output?.difficulty
-            .sink(receiveValue: { difficulty in
-                self.problemDifficultyBadge.text = difficulty
+            .sink(receiveValue: { [weak self] difficulty in
+                self?.problemDifficultyBadge.text = difficulty
             })
             .store(in: &subscriptions)
         
         output?.passKind
-            .sink(receiveValue: { passKind in
+            .sink(receiveValue: { [weak self] passKind in
                 if passKind == .accuracy {
-                    self.problemEfficiencyPassKindBadge.removeFromSuperview()
+                    self?.problemEfficiencyPassKindBadge.removeFromSuperview()
                 } else if passKind == .efficiency {
-                    self.problemAccuracyPassKindBadge.removeFromSuperview()
+                    self?.problemAccuracyPassKindBadge.removeFromSuperview()
                 }
             })
             .store(in: &subscriptions)

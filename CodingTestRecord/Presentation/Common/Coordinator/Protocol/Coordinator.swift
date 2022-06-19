@@ -18,7 +18,6 @@ protocol Coordinator: AnyObject {
 
 extension Coordinator {
     func finish() {
-        
         childCoordinators.removeAll()
         finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }

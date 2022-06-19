@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "코딩 테스트"
-        label.font = UIFont.systemFont(ofSize: 37, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
         
         return label
     }()
@@ -94,8 +94,7 @@ private extension HomeViewController {
     func configureUI() {
         view.backgroundColor = .white
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)        
         
         // titleLabel
         view.addSubview(self.titleLabel)

@@ -13,6 +13,7 @@ final class CodingTestResultViewModel {
     private var codingTestResultUseCase: CodingTestResultUseCase
     var problemEvents: [ProblemEvent] = []
     
+    
     init(
         coordinator: CodingTestingCoordinator? = nil,
         codingTestResultUseCase: CodingTestResultUseCase
@@ -21,8 +22,12 @@ final class CodingTestResultViewModel {
         self.codingTestResultUseCase = codingTestResultUseCase
     }
     
+    
+
+    
     struct Input {
         var viewDidLoadEvent: AnyPublisher<Void, Never>
+        var okButtonDidTap: AnyPublisher<Void, Never>
     }
     
     struct Output {
@@ -31,14 +36,23 @@ final class CodingTestResultViewModel {
         var total = CurrentValueSubject<Double, Never>(0)
     }
     
+    
+    
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
         let output = Output()
         
         input.viewDidLoadEvent
-            .sink { _ in
+            .sink { [weak self] _ in
                 output.score.send(
-                    self.codingTestResultUseCase.getScore()
+                    self?.codingTestResultUseCase.getScore() ?? 0
                 )
+            }
+            .store(in: &subscriptions)
+        
+        input.okButtonDidTap
+            .sink { [weak self] _ in
+                
+                self?.coordinator?.finish()
             }
             .store(in: &subscriptions)
         
@@ -59,8 +73,8 @@ final class CodingTestResultViewModel {
             .store(in: &subscriptions)
         
         self.codingTestResultUseCase.probelmEvents
-            .sink { probelmEvents in
-                self.problemEvents = probelmEvents
+            .sink { [weak self] probelmEvents in
+                self?.problemEvents = probelmEvents
             }
             .store(in: &subscriptions)
         

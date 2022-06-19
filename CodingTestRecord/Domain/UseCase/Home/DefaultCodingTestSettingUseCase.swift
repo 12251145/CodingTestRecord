@@ -20,6 +20,7 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
         self.codingTestSettingRepository = codingTestSettingRepository
         self.codingTestSetting = CurrentValueSubject<CodingTestSetting, Never>(codingTestSetting)
     }
+
     
     func updateTitle(with text: String) {
 //        let newValue = self.codingTestSetting.value

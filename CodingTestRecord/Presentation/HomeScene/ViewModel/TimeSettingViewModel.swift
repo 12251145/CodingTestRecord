@@ -17,6 +17,8 @@ final class TimeSettingViewModel {
         self.codingTestSettingUseCase = codingTestSettingUseCase
     }
     
+    
+    
     struct Input {
         var timePlusButtonDidTap: AnyPublisher<Void, Never>
         var timeSbustractButtonDidTap: AnyPublisher<Void, Never>

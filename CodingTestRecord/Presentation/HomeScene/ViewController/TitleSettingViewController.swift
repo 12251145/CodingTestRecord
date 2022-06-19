@@ -12,6 +12,8 @@ final class TitleSettingViewController: UIViewController {
     var viewModel: TitleSettingViewModel?
     var subscriptions = Set<AnyCancellable>()
     
+    
+    
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
         

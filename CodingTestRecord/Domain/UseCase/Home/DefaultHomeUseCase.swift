@@ -21,7 +21,7 @@ final class DefaultHomeUseCase: HomeUseCase {
     }
     
     func addCodingTest() {
-        if self.codingTestSettingRepository.addCodingTestSetting("노란회사 인턴", 18000) {
+        if self.codingTestSettingRepository.addCodingTestSetting("부스트 캠프", 7200) {
             
             self.loadCodingTestSettings()
         }

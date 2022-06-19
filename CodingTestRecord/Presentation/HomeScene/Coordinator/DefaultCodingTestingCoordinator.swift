@@ -9,7 +9,6 @@ import UIKit
 
 final class DefaultCodingTestingCoordinator: CodingTestingCoordinator {
     weak var finishDelegate: CoordinatorDidFinishDelegate?
-    weak var settingFinishDelegate: SettingCoordinatorDidFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     var type: CoordinatorType { .codingTesting }
@@ -28,7 +27,10 @@ final class DefaultCodingTestingCoordinator: CodingTestingCoordinator {
         let codingTestingViewController = CodingTestingViewController()
         codingTestingViewController.viewModel = CodingTestingViewModel(
             coordinator: self,
-            codingTestSettingUseCase: DefaultCodingTestingUseCase(codingTestSetting: settingData)
+            codingTestSettingUseCase: DefaultCodingTestingUseCase(
+                codingTestResultRepository: DefaultCodingTestResultRepository(coreDataService: DefaultCoreDataService.shared),
+                codingTestSetting: settingData
+            )
         )
         
         

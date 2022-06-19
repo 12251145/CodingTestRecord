@@ -9,11 +9,11 @@ import Combine
 import UIKit
 
 final class CodingTestingCellViewModel {
-    var delegate: CodingTestingCellDelegate?
+    weak var delegate: CodingTestingCellDelegate?
     var codingTesingCellUseCase: CodingTestingCellUseCase
     
     init(
-        delegate: CodingTestingCellDelegate? = nil,
+        delegate: CodingTestingCellDelegate,
         codingTesingCellUseCase: CodingTestingCellUseCase
     ) {
         self.delegate = delegate
@@ -34,14 +34,14 @@ final class CodingTestingCellViewModel {
         let output = Output()
         
         input.passAccuracySwitchEvent
-            .sink { control in
-                self.delegate?.updatePassState(index: self.codingTesingCellUseCase.index, kind: PassKind.accuracy, isPass: control.isOn)
+            .sink { [weak self] control in
+                self?.delegate?.updatePassState(index: self?.codingTesingCellUseCase.index ?? 0, kind: PassKind.accuracy, isPass: control.isOn)
             }
             .store(in: &subscruptions)
         
         input.passEfficiencySwitchEvent
-            .sink { control in
-                self.delegate?.updatePassState(index: self.codingTesingCellUseCase.index, kind: PassKind.efficiency, isPass: control.isOn)
+            .sink { [weak self] control in
+                self?.delegate?.updatePassState(index: self?.codingTesingCellUseCase.index ?? 0, kind: PassKind.efficiency, isPass: control.isOn)
             }
             .store(in: &subscruptions)
         

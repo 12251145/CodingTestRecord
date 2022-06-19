@@ -12,6 +12,8 @@ final class TimeSettingViewController: UIViewController {
     var viewModel: TimeSettingViewModel?
     var subscriptions = Set<AnyCancellable>()
     
+    
+    
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
         

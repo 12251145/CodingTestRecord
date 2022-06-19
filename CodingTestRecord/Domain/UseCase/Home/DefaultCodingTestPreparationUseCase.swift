@@ -13,7 +13,6 @@ final class DefaultCodingTestPreparationUseCase: CodingTestPreparationUseCase {
     var subscriptions = Set<AnyCancellable>()
     private let maxTime = 1
     
-    
     func executeTimer() {
         let start = Date()
         

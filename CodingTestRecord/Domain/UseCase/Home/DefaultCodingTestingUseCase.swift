@@ -9,22 +9,22 @@ import Combine
 import Foundation
 
 final class DefaultCodingTestingUseCase: CodingTestingUseCase {
+    private let codingTestResultRepository: CodingTestResultRepository
     var isTimeOver = CurrentValueSubject<Bool, Never>(false)
     var codingTesting: CurrentValueSubject<CodingTesting, Never>
     var subscriptions = Set<AnyCancellable>()
     
     init(
+        codingTestResultRepository: CodingTestResultRepository,
         codingTestSetting: CodingTestSetting
     ) {
-        let codingTesting = CodingTesting(
-            date: Date(),
-            title: codingTestSetting.title ?? "타이틀 없음",
-            timeLimit: codingTestSetting.timeLimit,
-            leftTime: codingTestSetting.timeLimit,
-            problems: codingTestSetting.problemArr
-        )
+        self.codingTestResultRepository = codingTestResultRepository
+        
+        let codingTesting = self.codingTestResultRepository.getCodingTesting(by: codingTestSetting)
         self.codingTesting = CurrentValueSubject<CodingTesting, Never>(codingTesting)
     }
+
+    
     
     func executeTimer() {
         let start = Date()

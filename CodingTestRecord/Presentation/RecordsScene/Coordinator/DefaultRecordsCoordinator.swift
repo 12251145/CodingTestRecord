@@ -22,7 +22,11 @@ final class DefaultRecordsCoordinator: RecordsCoordinator {
     func start() {
         self.recordsViewController.viewModel = RecordsViewModel(
             coordinator: self,
-            recordsUseCase: DefaultRecordsUseCase()
+            recordsUseCase: DefaultRecordsUseCase(
+                codingTestResultRepository: DefaultCodingTestResultRepository(
+                    coreDataService: DefaultCoreDataService.shared
+                )
+            )
         )
         self.navigationController.pushViewController(self.recordsViewController, animated: true)
     }

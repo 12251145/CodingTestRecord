@@ -12,6 +12,8 @@ final class CodingTestResultViewController: UIViewController {
     var viewModel: CodingTestResultViewModel?
     var subscriptions = Set<AnyCancellable>()
     
+    
+    
     private lazy var okButton: UIButton = {
         let button = UIButton()
         
@@ -142,26 +144,27 @@ private extension CodingTestResultViewController {
     func bindViewModle() {
         let output = self.viewModel?.transform(
             from: CodingTestResultViewModel.Input(
-                viewDidLoadEvent: Just(()).eraseToAnyPublisher()
+                viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
+                okButtonDidTap: self.okButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
             ),
             subscriptions: &subscriptions
         )
         
         output?.title
-            .sink(receiveValue: { title in
-                self.navigationItem.title = title
+            .sink(receiveValue: { [weak self] title in
+                self?.navigationItem.title = title
             })
             .store(in: &subscriptions)
         
         output?.score
-            .sink(receiveValue: { score in
-                self.scoreLabel.text = String(score)
+            .sink(receiveValue: { [weak self] score in
+                self?.scoreLabel.text = String(score)
             })
             .store(in: &subscriptions)
         
         output?.total
-            .sink(receiveValue: { total in
-                self.totalLabel.text = String(total)
+            .sink(receiveValue: { [weak self] total in
+                self?.totalLabel.text = String(total)
             })
             .store(in: &subscriptions)
     }

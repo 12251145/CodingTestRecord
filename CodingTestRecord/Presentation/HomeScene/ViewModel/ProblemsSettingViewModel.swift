@@ -14,6 +14,8 @@ final class ProblemsSettingViewModel {
     private var codingTestSettingUseCase: CodingTestSettingUseCase
     var problems: [Problem] = []
     
+    
+    
     init(coordinator: CodingTestSettingCoordinator? = nil, codingTestSettingUseCase: CodingTestSettingUseCase) {
         self.coordinator = coordinator
         self.codingTestSettingUseCase = codingTestSettingUseCase

@@ -12,6 +12,8 @@ final class CodingTestPreparationViewController: UIViewController {
     var viewModel: CodingTestPreparationViewModel?
     var subscriptions = Set<AnyCancellable>()
     
+    
+    
     private lazy var startMessageLabel: UILabel = {
         let label = UILabel()
         

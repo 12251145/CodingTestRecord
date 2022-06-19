@@ -78,7 +78,7 @@ final class DefaultCodingTestResultUseCase: CodingTestResultUseCase {
             if i == 0 {
                 sorted[i].takeTime = sorted[i].passTime
             } else {
-                sorted[i].takeTime = sorted[i].passTime - sorted[i - 1].takeTime
+                sorted[i].takeTime = sorted[i].passTime - sorted[i - 1].passTime
             }
         }
         
