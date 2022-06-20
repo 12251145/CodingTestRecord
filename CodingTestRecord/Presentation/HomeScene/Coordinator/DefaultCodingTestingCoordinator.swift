@@ -42,7 +42,9 @@ final class DefaultCodingTestingCoordinator: CodingTestingCoordinator {
         codingTestResultViewController.viewModel = CodingTestResultViewModel(
             coordinator: self,
             codingTestResultUseCase: DefaultCodingTestResultUseCase(
-                codingTestResultRepository: DefaultCodingTestResultRepository(coreDataService: DefaultCoreDataService.shared),
+                codingTestResultRepository: DefaultCodingTestResultRepository(
+                    coreDataService: DefaultCoreDataService.shared
+                ),
                 codingTesting: result
             )
         )

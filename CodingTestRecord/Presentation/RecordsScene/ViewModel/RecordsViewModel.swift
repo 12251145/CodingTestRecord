@@ -11,6 +11,7 @@ import Foundation
 final class RecordsViewModel {
     weak var coordinator: RecordsCoordinator?
     private var recordsUseCase: RecordsUseCase
+    var codingTestResults: [CodingTestResult] = []
     
     init(coordinator: RecordsCoordinator, recordsUseCase: RecordsUseCase) {
         self.coordinator = coordinator
@@ -22,7 +23,9 @@ final class RecordsViewModel {
     }
     
     struct Output {        
-        var chartData = CurrentValueSubject<ChartData, Never>(ChartData(series: [], correctAvg: 0, problemCountAvg: 0))
+        let chartData = CurrentValueSubject<ChartData, Never>(ChartData(series: [], correctAvg: 0, problemCountAvg: 0))
+        let loadData = PassthroughSubject<Bool, Never>()
+        
     }
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
@@ -35,7 +38,8 @@ final class RecordsViewModel {
             .store(in: &subscriptions)
         
         self.recordsUseCase.codingTestResults
-            .sink { [weak self] codingTestResults in
+            .sink { [weak self] codingTestResults in                
+                self?.codingTestResults = codingTestResults
                 
                 output.chartData.send(
                     self?.getChartDate(
@@ -44,6 +48,8 @@ final class RecordsViewModel {
                         }
                     ) ?? ChartData(series: [], correctAvg: 0, problemCountAvg: 0)
                 )
+                
+                output.loadData.send(true)
             }
             .store(in: &subscriptions)
         
@@ -70,8 +76,10 @@ final class RecordsViewModel {
                     } else {
                         wrongSummary.count += 0.5
                     }
+                    
                     if problem.passEfficiencyTest {
                         correctSummary.count += 0.5
+                        correctCount += 0.5
                     } else {
                         wrongSummary.count += 0.5
                     }

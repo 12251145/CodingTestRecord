@@ -9,7 +9,6 @@ import SwiftUI
 import Charts
 
 struct CodingTestCellView: View {
-    var setting: CodingTestSetting
     var problems: [Problem]
     var title: String
     var timeLimit: Int
@@ -18,7 +17,6 @@ struct CodingTestCellView: View {
     let height = (UIScreen.main.bounds.width - 32) / 4
     
     init(setting: CodingTestSetting) {
-        self.setting = setting
         self.title = setting.title ?? ""
         self.timeLimit = Int(setting.timeLimit)
         self.problems = setting.problemArr

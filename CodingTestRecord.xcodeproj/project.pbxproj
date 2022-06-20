@@ -70,6 +70,8 @@
 		6A851F5A285F7A800072096C /* CountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F59285F7A800072096C /* CountSummary.swift */; };
 		6A851F5C285F914A0072096C /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F5B285F914A0072096C /* ChartData.swift */; };
 		6A851F5E285F93B10072096C /* Double + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F5D285F93B10072096C /* Double + Formatter.swift */; };
+		6A851F65285FF3990072096C /* CodingTestResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F64285FF3990072096C /* CodingTestResultCell.swift */; };
+		6A851F712860155B0072096C /* CodingTestResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F702860155B0072096C /* CodingTestResultCellView.swift */; };
 		6AADBCB8285D6C05003F92F7 /* CodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */; };
 		6AADBCBA285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */; };
 		6AADBCC0285D7866003F92F7 /* CodingTestingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */; };
@@ -170,6 +172,8 @@
 		6A851F59285F7A800072096C /* CountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountSummary.swift; sourceTree = "<group>"; };
 		6A851F5B285F914A0072096C /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		6A851F5D285F93B10072096C /* Double + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Formatter.swift"; sourceTree = "<group>"; };
+		6A851F64285FF3990072096C /* CodingTestResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCell.swift; sourceTree = "<group>"; };
+		6A851F702860155B0072096C /* CodingTestResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCellView.swift; sourceTree = "<group>"; };
 		6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +380,24 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		6A851F5F285FF3550072096C /* CodingTestResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F64285FF3990072096C /* CodingTestResultCell.swift */,
+				6A851F702860155B0072096C /* CodingTestResultCellView.swift */,
+			);
+			path = CodingTestResultCell;
+			sourceTree = "<group>";
+		};
+		6A851F6F28600F1D0072096C /* ProblemSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
+				6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */,
+			);
+			path = ProblemSettingCell;
+			sourceTree = "<group>";
+		};
 		6AADBCBB285D7668003F92F7 /* CodingTestingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,7 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BA928572B32009E41AD /* Home */,
-				6ADA1BBB285732C0009E41AD /* History */,
+				6ADA1BBB285732C0009E41AD /* Records */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -615,6 +637,7 @@
 				6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */,
 				6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */,
 				6A360EA8285D60F20092AA23 /* CodingTestResultViewController.swift */,
+				6A851F6F28600F1D0072096C /* ProblemSettingCell */,
 				6A851F32285E04680072096C /* CodingTestTimelineCell */,
 				6AADBCBB285D7668003F92F7 /* CodingTestingCell */,
 				6A360E98285C87DD0092AA23 /* Sheet */,
@@ -625,10 +648,8 @@
 		6ADA1B9F285729E2009E41AD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
 				6A31FE3028597F4B00AA8625 /* CursorDisabledTextField.swift */,
 				6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */,
-				6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */,
 				6A360E74285B61AC0092AA23 /* TimerProgressView.swift */,
 			);
 			path = View;
@@ -695,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				6ADA1BC128573357009E41AD /* RecordsViewController.swift */,
+				6A851F5F285FF3550072096C /* CodingTestResultCell */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -724,13 +746,13 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		6ADA1BBB285732C0009E41AD /* History */ = {
+		6ADA1BBB285732C0009E41AD /* Records */ = {
 			isa = PBXGroup;
 			children = (
 				6ADA1BBF285732E2009E41AD /* DefaultRecordsUseCase.swift */,
 				6ADA1BBC285732C9009E41AD /* Protocol */,
 			);
-			path = History;
+			path = Records;
 			sourceTree = "<group>";
 		};
 		6ADA1BBC285732C9009E41AD /* Protocol */ = {
@@ -909,6 +931,7 @@
 				6A851F38285E04CF0072096C /* CodingTestTimelineCell.swift in Sources */,
 				6A360EAD285D61C80092AA23 /* CodingTestResultUseCase.swift in Sources */,
 				6A31FE4D285A1E3300AA8625 /* CodingTestPreparationViewController.swift in Sources */,
+				6A851F712860155B0072096C /* CodingTestResultCellView.swift in Sources */,
 				6A026C5D285A32DE0003BB89 /* ProblemTableViewCell.swift in Sources */,
 				6A360E9D285C88650092AA23 /* ProblemSettingSheetDelegate.swift in Sources */,
 				6AADBCC5285D7B3C003F92F7 /* CodingTestingCellUseCase.swift in Sources */,
@@ -922,6 +945,7 @@
 				6ADA1B902857185C009E41AD /* CoordinatorType.swift in Sources */,
 				6ADA1BA628572A9D009E41AD /* HomeViewController.swift in Sources */,
 				6A31FE272858CB1800AA8625 /* CodingTestSettingUseCase.swift in Sources */,
+				6A851F65285FF3990072096C /* CodingTestResultCell.swift in Sources */,
 				6A851F5A285F7A800072096C /* CountSummary.swift in Sources */,
 				6A31FE3128597F4B00AA8625 /* CursorDisabledTextField.swift in Sources */,
 				6A31FE2D2859605600AA8625 /* UIControl + ControlPublisher.swift in Sources */,

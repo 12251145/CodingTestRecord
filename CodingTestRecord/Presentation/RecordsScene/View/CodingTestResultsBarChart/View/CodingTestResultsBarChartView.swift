@@ -15,7 +15,7 @@ struct CodingTestResultsBarChartView: View {
     init(
         chartData: ChartData
     ) {
-        self.chartData = chartData     
+        self.chartData = chartData        
     }
     
     var body: some View {
@@ -28,7 +28,7 @@ struct CodingTestResultsBarChartView: View {
                 Spacer()
             }
             .padding(.horizontal, 20)
-            .padding(.top, 12)
+            .padding(.top, 16)
             
             Spacer()
             

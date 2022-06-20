@@ -104,7 +104,7 @@ final class CodingTestTimelineCell: UITableViewCell {
     private lazy var devider: UIView = {
         let rect = UIView()
         
-        rect.backgroundColor = .secondarySystemBackground
+        rect.backgroundColor = .systemGray5
         
         return rect
     }()

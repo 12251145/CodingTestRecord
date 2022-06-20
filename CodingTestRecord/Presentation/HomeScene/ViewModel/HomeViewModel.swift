@@ -25,7 +25,7 @@ final class HomeViewModel {
     }
     
     struct Output {
-        var addButtonDidTap = PassthroughSubject<Bool, Never>()
+        var addButtonDidTap = PassthroughSubject<Bool, Never>()        
     }
     
     func transform(input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {

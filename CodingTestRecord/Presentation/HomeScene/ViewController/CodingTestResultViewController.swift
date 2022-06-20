@@ -86,6 +86,7 @@ final class CodingTestResultViewController: UIViewController {
 // MARK: - Private Functions
 private extension CodingTestResultViewController {
     func configureUI() {
+        
         self.navigationItem.hidesBackButton = true
         self.navigationItem.title = "타이틀"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -117,6 +118,7 @@ private extension CodingTestResultViewController {
             self.devider.heightAnchor.constraint(equalToConstant: 1)
         ])
         
+        
         self.view.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -142,6 +144,7 @@ private extension CodingTestResultViewController {
     }
     
     func bindViewModle() {
+        
         let output = self.viewModel?.transform(
             from: CodingTestResultViewModel.Input(
                 viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
@@ -167,16 +170,20 @@ private extension CodingTestResultViewController {
                 self?.totalLabel.text = String(total)
             })
             .store(in: &subscriptions)
+        
     }
 }
 
 extension CodingTestResultViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // print(indexPath.row)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (UIScreen.main.bounds.width / 5.5) + 32
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.viewModel?.problemEvents.count ?? 0
     }
     
