@@ -35,6 +35,12 @@ class DefaultCoreDataService: CoreDataService {
         }
     }
     
+    func delete(object: NSManagedObject) -> Bool {
+        self.context.delete(object)
+        
+        return save()
+    }
+    
     func addCodingTestSetting(_ title: String = "", _ timeLimit: Int = 3600) -> Bool {
         let entity = NSEntityDescription.entity(forEntityName: "CodingTestSetting", in: self.context)
         
@@ -63,22 +69,19 @@ class DefaultCoreDataService: CoreDataService {
                 problem.codingTest = managedObject
             }
             
-            do {
-                try self.context.save()
-                return true
-            } catch {
-                return false
-            }
+            return save()
         } else {
             return false
         }
     }
     
-    func save() {
+    func save() -> Bool {
         do {
             try self.context.save()
+            return true
         } catch {
             print("CoreData save failed!")
+            return false
         }
     }
     

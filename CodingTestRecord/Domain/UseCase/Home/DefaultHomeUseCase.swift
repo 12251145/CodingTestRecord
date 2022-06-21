@@ -37,6 +37,13 @@ final class DefaultHomeUseCase: HomeUseCase {
         self.codingTests.send(newValue)
     }
     
+    func deleteCodingTestSetting(_ codingTestSetting: CodingTestSetting) {
+        if self.codingTestSettingRepository.deleteCodingTestSetting(codingTestSetting) {
+            let newValue = self.codingTestSettingRepository.loadCodingTestSettings()
+            self.codingTests.send(newValue)
+        }
+    }
+    
     func sortedCodintTestSettings(list: [CodingTestSetting]) -> [CodingTestSetting] {
         return list.sorted { $0.date! < $1.date! }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-struct CodingTestCellView: View {
+struct CodingTestCellView: View {    
     var problems: [Problem]
     var title: String
     var timeLimit: Int
@@ -27,7 +27,7 @@ struct CodingTestCellView: View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
                 Text(title)
-                    .font(.system(.title, weight: .bold))
+                    .font(.system(.title, weight: .semibold))
                     .lineLimit(1)                
                     
                     

@@ -22,6 +22,7 @@ final class HomeViewModel {
         let viewDidLoadEvent: AnyPublisher<Void, Never>
         let addCodingTestButtonDidTap: AnyPublisher<Void, Never>
         let tableViewCellDidSelected: AnyPublisher<Int, Never>
+        let swipeToDeleteActionEvent: AnyPublisher<Int, Never>
     }
     
     struct Output {
@@ -48,6 +49,12 @@ final class HomeViewModel {
         input.tableViewCellDidSelected
             .sink { [weak self] indexPathRow in
                 self?.coordinator?.showSettingFlow(with: self?.codingTestSettings[indexPathRow] ?? CodingTestSetting()) 
+            }
+            .store(in: &subscriptions)
+        
+        input.swipeToDeleteActionEvent
+            .sink { index in
+                self.homeUseCase.deleteCodingTestSetting(self.codingTestSettings[index])
             }
             .store(in: &subscriptions)
         

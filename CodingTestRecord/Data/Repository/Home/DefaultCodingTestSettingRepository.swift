@@ -22,6 +22,10 @@ final class DefaultCodingTestSettingRepository: CodingTestSettingRepository {
         return self.coreDataService.addCodingTestSetting(title, timeLimit)
     }
     
+    func deleteCodingTestSetting(_ codingTestSetting: CodingTestSetting) -> Bool {
+        return self.coreDataService.delete(object: codingTestSetting)
+    }
+    
     func addProblem(at codingTestSetting: CodingTestSetting) {
         let problem = self.coreDataService.createProblem()
         

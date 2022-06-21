@@ -392,10 +392,17 @@
 		6A851F6F28600F1D0072096C /* ProblemSettingCell */ = {
 			isa = PBXGroup;
 			children = (
-				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
 				6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */,
 			);
 			path = ProblemSettingCell;
+			sourceTree = "<group>";
+		};
+		6A851F72286203790072096C /* CodingTestCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A46822C28587B6B009D843D /* CodingTestCellView.swift */,
+			);
+			path = CodingTestCell;
 			sourceTree = "<group>";
 		};
 		6AADBCBB285D7668003F92F7 /* CodingTestingCell */ = {
@@ -637,6 +644,7 @@
 				6A31FE4C285A1E3300AA8625 /* CodingTestPreparationViewController.swift */,
 				6A31FE44285A193000AA8625 /* CodingTestingViewController.swift */,
 				6A360EA8285D60F20092AA23 /* CodingTestResultViewController.swift */,
+				6A851F72286203790072096C /* CodingTestCell */,
 				6A851F6F28600F1D0072096C /* ProblemSettingCell */,
 				6A851F32285E04680072096C /* CodingTestTimelineCell */,
 				6AADBCBB285D7668003F92F7 /* CodingTestingCell */,

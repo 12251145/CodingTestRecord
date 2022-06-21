@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     var subscriptions = Set<AnyCancellable>()
     var tableViewCellDidSelectedSubject = PassthroughSubject<Int, Never>()
+    var swipeToDeleteActionEventSubject = PassthroughSubject<Int, Never>()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -140,7 +141,8 @@ private extension HomeViewController {
         let output = viewModel?.transform(input: HomeViewModel.Input(
             viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
             addCodingTestButtonDidTap: self.addCodingTestButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
-            tableViewCellDidSelected: self.tableViewCellDidSelectedSubject.eraseToAnyPublisher()
+            tableViewCellDidSelected: self.tableViewCellDidSelectedSubject.eraseToAnyPublisher(),
+            swipeToDeleteActionEvent: self.swipeToDeleteActionEventSubject.eraseToAnyPublisher()
         ), subscriptions: &subscriptions)
         
         output?.addButtonDidTap
@@ -174,6 +176,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.contentConfiguration = UIHostingConfiguration {
             CodingTestCellView(setting: codingTestSetting!)
+            
         }
         .background(.white)
         
@@ -182,5 +185,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableViewCellDidSelectedSubject.send(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: nil, handler: { action, view, completionHandler in
+            self.swipeToDeleteActionEventSubject.send(indexPath.row)
+            completionHandler(true)
+        })
+        
+        action.image = UIImage(systemName: "trash.fill")
+        action.backgroundColor = .systemGray2
+        
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
 }

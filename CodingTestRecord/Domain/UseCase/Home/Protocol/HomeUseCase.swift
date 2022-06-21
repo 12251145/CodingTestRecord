@@ -10,7 +10,7 @@ import Foundation
 
 protocol HomeUseCase {
     var codingTests: CurrentValueSubject<[CodingTestSetting], Never> { get set }
-    
+    func deleteCodingTestSetting(_ codingTestSetting: CodingTestSetting)
     func loadCodingTestSettings()
     func addCodingTest()    
 }
