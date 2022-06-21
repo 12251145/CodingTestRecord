@@ -34,6 +34,7 @@ final class CodingTestResultViewModel {
         var title = CurrentValueSubject<String, Never>("")
         var score = CurrentValueSubject<Double, Never>(0)
         var total = CurrentValueSubject<Double, Never>(0)
+        var loadData = PassthroughSubject<Bool, Never>()
     }
     
     
@@ -75,6 +76,7 @@ final class CodingTestResultViewModel {
         self.codingTestResultUseCase.probelmEvents
             .sink { [weak self] probelmEvents in
                 self?.problemEvents = probelmEvents
+                output.loadData.send(true)
             }
             .store(in: &subscriptions)
         

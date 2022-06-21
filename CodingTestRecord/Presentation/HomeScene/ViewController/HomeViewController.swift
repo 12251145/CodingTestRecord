@@ -149,6 +149,13 @@ private extension HomeViewController {
                 self?.tableView.reloadData()
             })
             .store(in: &subscriptions)
+        
+        output?.loadData
+            .filter { $0 }
+            .sink(receiveValue: { _ in
+                self.tableView.reloadData()
+            })
+            .store(in: &subscriptions)
     }
 }
 

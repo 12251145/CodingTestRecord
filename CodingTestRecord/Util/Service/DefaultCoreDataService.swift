@@ -64,13 +64,21 @@ class DefaultCoreDataService: CoreDataService {
             }
             
             do {
-                // try self.context.save()
+                try self.context.save()
                 return true
             } catch {
                 return false
             }
         } else {
             return false
+        }
+    }
+    
+    func save() {
+        do {
+            try self.context.save()
+        } catch {
+            print("CoreData save failed!")
         }
     }
     
@@ -87,6 +95,7 @@ class DefaultCoreDataService: CoreDataService {
         
         return problem
     }
+
     
     func createCodingTesting(by codingTestSetting: CodingTestSetting) -> CodingTesting {        
         var problems: [Problem] = []
@@ -143,6 +152,8 @@ class DefaultCoreDataService: CoreDataService {
                 
                 problem.codingTestResult = managedObject
             }
+            
+            save()
             
             return managedObject
         } else {

@@ -11,6 +11,7 @@ import Foundation
 final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
     private let codingTestSettingRepository: CodingTestSettingRepository
     
+    
     var codingTestSetting: CurrentValueSubject<CodingTestSetting, Never>
     
     init(
@@ -23,17 +24,19 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
 
     
     func updateTitle(with text: String) {
-//        let newValue = self.codingTestSetting.value
-//        newValue.title = text
-//
-//        self.codingTestSetting.send(newValue)
+        let newValue = self.codingTestSetting.value
+        newValue.title = text
         
-        self.codingTestSetting.value.title = text
+        self.codingTestSettingRepository.save()
+
+        self.codingTestSetting.send(newValue)
     }
     
     func updateTime(with time: Int32) {
         let newValue = self.codingTestSetting.value
         newValue.timeLimit += time
+        
+        self.codingTestSettingRepository.save()
         
         self.codingTestSetting.send(newValue)
     }
@@ -49,4 +52,14 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
         
         self.codingTestSetting.send(self.codingTestSetting.value)
     }
+    
+    func updateProblem(_ problem: Problem, _ difficulty: Int32, _ chekcEfficiency: Bool) {
+        problem.difficulty = difficulty
+        problem.checkEfficiency = chekcEfficiency
+        
+        self.codingTestSettingRepository.save()
+        
+        self.codingTestSetting.send(self.codingTestSetting.value)
+    }
 }
+

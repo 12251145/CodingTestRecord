@@ -26,9 +26,17 @@ final class DefaultCodingTestSettingRepository: CodingTestSettingRepository {
         let problem = self.coreDataService.createProblem()
         
         problem.codingTest = codingTestSetting
+        
+        save()
     }
     
     func deleteProblem(_ problem: Problem, at codingTestSetting: CodingTestSetting) {
         codingTestSetting.removeFromProblems(problem)
+        
+        save()
+    }
+    
+    func save() {
+        self.coreDataService.save()
     }
 }

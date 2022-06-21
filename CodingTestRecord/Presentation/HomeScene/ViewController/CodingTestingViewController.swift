@@ -182,7 +182,7 @@ private extension CodingTestingViewController {
         
         output?.leftTime
             .sink(receiveValue: { [weak self] leftTime in
-                self?.timerLabel.text = leftTime.hhmmss
+                self?.timerLabel.text = leftTime
             })
             .store(in: &subscriptions)
         

@@ -14,4 +14,5 @@ protocol CodingTestSettingUseCase {
     func updateTime(with time: Int32)
     func addProblem()
     func deleteProblem(_ problem: Problem)
+    func updateProblem(_ problem: Problem, _ difficulty: Int32, _ chekcEfficiency: Bool)
 }

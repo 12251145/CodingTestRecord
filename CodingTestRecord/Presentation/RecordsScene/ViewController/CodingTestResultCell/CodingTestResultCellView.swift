@@ -27,7 +27,7 @@ struct CodingTestResultCellView: View {
         HStack {
             VStack(alignment: .leading, spacing: 15) {
                 Text(title)
-                    .font(.system(.title, weight: .bold))
+                    .font(.system(.title2, weight: .bold))
                     .lineLimit(1)
             }
             

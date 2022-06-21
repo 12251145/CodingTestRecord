@@ -30,7 +30,7 @@ final class CodingTestingViewModel {
     
     struct Output {
         var title = CurrentValueSubject<String, Never>("")
-        var leftTime = CurrentValueSubject<Int32, Never>(3600)
+        var leftTime = CurrentValueSubject<String, Never>("")
         var progress = CurrentValueSubject<Float, Never>(0)
     }
     
@@ -72,7 +72,7 @@ final class CodingTestingViewModel {
         self.codingTestingUseCase.codingTesting
             .map { $0.leftTime }
             .sink { leftTime in                
-                output.leftTime.send(leftTime)
+                output.leftTime.send(leftTime.hhmmss)
                 
             }
             .store(in: &subscriptions)

@@ -28,9 +28,6 @@ final class DefaultHomeUseCase: HomeUseCase {
     }
     
     func loadCodingTestSettings() {
-//        self.codingTests.value = self.sortedCodintTestSettings(
-//            list: self.codingTestSettingRepository.loadCodingTestSettings()
-//        )
         
         let newValue = self.sortedCodintTestSettings(
             list: self.codingTestSettingRepository.loadCodingTestSettings()

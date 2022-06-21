@@ -11,5 +11,6 @@ import Foundation
 protocol HomeUseCase {
     var codingTests: CurrentValueSubject<[CodingTestSetting], Never> { get set }
     
+    func loadCodingTestSettings()
     func addCodingTest()    
 }

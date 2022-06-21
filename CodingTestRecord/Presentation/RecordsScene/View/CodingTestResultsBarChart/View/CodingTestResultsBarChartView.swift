@@ -23,7 +23,7 @@ struct CodingTestResultsBarChartView: View {
             
             HStack {
                 Text("요약")
-                    .font(.system(size: 25, weight: .semibold))
+                    .font(.system(size: 20, weight: .semibold))
                 
                 Spacer()
             }

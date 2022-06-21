@@ -25,7 +25,8 @@ final class HomeViewModel {
     }
     
     struct Output {
-        var addButtonDidTap = PassthroughSubject<Bool, Never>()        
+        var addButtonDidTap = PassthroughSubject<Bool, Never>()
+        var loadData = PassthroughSubject<Bool, Never>()
     }
     
     func transform(input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
@@ -33,7 +34,7 @@ final class HomeViewModel {
         
         input.viewDidLoadEvent
             .sink { _ in
-                
+                self.homeUseCase.loadCodingTestSettings()
             }
             .store(in: &subscriptions)
         
@@ -53,6 +54,7 @@ final class HomeViewModel {
         self.homeUseCase.codingTests
             .sink { codingTestSettings in                
                 self.codingTestSettings = codingTestSettings
+                output.loadData.send(true)
             }
             .store(in: &subscriptions)
         

@@ -13,6 +13,7 @@ final class ProblemsSettingViewController: UIViewController {
     var viewModel: ProblemsSettingViewModel?
     var subscriptions = Set<AnyCancellable>()
     var deleteButtonDidTap = PassthroughSubject<Int, Never>()
+    var updateProblemEvent = PassthroughSubject<(Int, Int32, Bool), Never>()
     
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
@@ -155,12 +156,13 @@ private extension ProblemsSettingViewController {
                 deleteButtonDidTap: self.deleteButtonDidTap.eraseToAnyPublisher(),
                 viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
                 addProblemButtonDidTap: self.addProblemButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
+                updateProblemEvent: self.updateProblemEvent.eraseToAnyPublisher(),
                 nextButtonDidTap: self.nextButton.publisher(for: .touchUpInside).eraseToAnyPublisher()
             ),
             subscriptions: &subscriptions
         )
         
-        output?.addButtonDidTap
+        output?.loadData
             .filter { $0 }
             .sink(receiveValue: { [weak self] _ in
                 self?.tableView.reloadData()
@@ -254,8 +256,7 @@ extension ProblemsSettingViewController: UITableViewDelegate, UITableViewDataSou
 
 extension ProblemsSettingViewController: ProblemSettingSheetDelegate {
     func updateProblemSetting(difficulty: Int32, checkEfficiency: Bool, index: Int) {
-        self.viewModel?.problems[index].difficulty = difficulty
-        self.viewModel?.problems[index].checkEfficiency = checkEfficiency
+        self.updateProblemEvent.send((index, difficulty, checkEfficiency))
         self.tableView.reloadData()
     }
     
@@ -267,3 +268,4 @@ extension ProblemsSettingViewController: ProblemSettingSheetDelegate {
         self.tableView.reloadData()
     }
 }
+

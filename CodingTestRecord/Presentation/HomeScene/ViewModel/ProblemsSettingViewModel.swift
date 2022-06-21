@@ -25,11 +25,12 @@ final class ProblemsSettingViewModel {
         var deleteButtonDidTap: AnyPublisher<Int, Never>
         var viewDidLoadEvent: AnyPublisher<Void, Never>
         var addProblemButtonDidTap: AnyPublisher<Void, Never>
+        var updateProblemEvent: AnyPublisher<(Int, Int32, Bool), Never>
         var nextButtonDidTap: AnyPublisher<Void, Never>
     }
     
     struct Output {
-        var addButtonDidTap = CurrentValueSubject<Bool, Never>(false)
+        var loadData = CurrentValueSubject<Bool, Never>(false)
     }
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
@@ -44,7 +45,6 @@ final class ProblemsSettingViewModel {
         input.addProblemButtonDidTap
             .sink { [weak self] _ in
                 self?.codingTestSettingUseCase.addProblem()
-                output.addButtonDidTap.send(true)
             }
             .store(in: &subscriptions)
         
@@ -56,12 +56,20 @@ final class ProblemsSettingViewModel {
             }
             .store(in: &subscriptions)
         
+        input.updateProblemEvent
+            .sink { index, difficulty, checkEfficiency in
+                self.codingTestSettingUseCase.updateProblem(self.problems[index], difficulty, checkEfficiency)
+            }
+            .store(in: &subscriptions)
+        
         self.codingTestSettingUseCase.codingTestSetting
             .sink { codingTestSetting in
                 self.problems = codingTestSetting.problemArr
+                output.loadData.send(true)
             }
             .store(in: &subscriptions)
         
         return output
     }
 }
+
