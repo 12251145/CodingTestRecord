@@ -72,6 +72,7 @@
 		6A851F5E285F93B10072096C /* Double + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F5D285F93B10072096C /* Double + Formatter.swift */; };
 		6A851F65285FF3990072096C /* CodingTestResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F64285FF3990072096C /* CodingTestResultCell.swift */; };
 		6A851F712860155B0072096C /* CodingTestResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F702860155B0072096C /* CodingTestResultCellView.swift */; };
+		6A851F7728634D110072096C /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F7628634D110072096C /* KeyboardMonitor.swift */; };
 		6AADBCB8285D6C05003F92F7 /* CodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */; };
 		6AADBCBA285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */; };
 		6AADBCC0285D7866003F92F7 /* CodingTestingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */; };
@@ -174,6 +175,7 @@
 		6A851F5D285F93B10072096C /* Double + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Formatter.swift"; sourceTree = "<group>"; };
 		6A851F64285FF3990072096C /* CodingTestResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCell.swift; sourceTree = "<group>"; };
 		6A851F702860155B0072096C /* CodingTestResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCellView.swift; sourceTree = "<group>"; };
+		6A851F7628634D110072096C /* KeyboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
 		6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellDelegate.swift; sourceTree = "<group>"; };
@@ -405,6 +407,14 @@
 			path = CodingTestCell;
 			sourceTree = "<group>";
 		};
+		6A851F7528634CFC0072096C /* EventMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				6A851F7628634D110072096C /* KeyboardMonitor.swift */,
+			);
+			path = EventMonitor;
+			sourceTree = "<group>";
+		};
 		6AADBCBB285D7668003F92F7 /* CodingTestingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +578,7 @@
 		6ADA1B8828571530009E41AD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6A851F7528634CFC0072096C /* EventMonitor */,
 				6ADA1BC82857757F009E41AD /* Service */,
 				6ADA1B8A2857153E009E41AD /* Constant */,
 				6ADA1B8928571538009E41AD /* Extension */,
@@ -891,6 +902,7 @@
 				6A851F4B285F2DF30072096C /* CodingTestResultsBarChartView.swift in Sources */,
 				6A360EA7285CBF0E0092AA23 /* DefaultProblemSettingSheetUseCase.swift in Sources */,
 				6ADA1B922857198E009E41AD /* AppCoordinator.swift in Sources */,
+				6A851F7728634D110072096C /* KeyboardMonitor.swift in Sources */,
 				6A31FE252858CA9600AA8625 /* TitleSettingViewModel.swift in Sources */,
 				6A851F5C285F914A0072096C /* ChartData.swift in Sources */,
 				6A360EA9285D60F20092AA23 /* CodingTestResultViewController.swift in Sources */,
