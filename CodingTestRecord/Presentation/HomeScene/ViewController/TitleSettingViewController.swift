@@ -10,9 +10,10 @@ import UIKit
 
 final class TitleSettingViewController: UIViewController {
     var viewModel: TitleSettingViewModel?
+    var keyboardMonitor : KeyboardMonitor?
     var subscriptions = Set<AnyCancellable>()
     
-    
+    private var nextButtonBottomConstraint: NSLayoutConstraint?
     
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
@@ -59,9 +60,17 @@ final class TitleSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        keyboardMonitor = KeyboardMonitor()
+        observingKeyboardEvent()
+        
         configureUI()
         bindViewModel()
     }
+    
+    
 }
 
 // MARK: - Private Functions
@@ -90,9 +99,10 @@ private extension TitleSettingViewController {
         
         self.view.addSubview(self.nextButton)
         self.nextButton.translatesAutoresizingMaskIntoConstraints = false
+        self.nextButtonBottomConstraint = self.nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         
         NSLayoutConstraint.activate([
-            self.nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            self.nextButtonBottomConstraint!,
             self.nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.nextButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             self.nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
@@ -119,5 +129,24 @@ private extension TitleSettingViewController {
     
     func updateTitleText(with text: String) {
         self.titleTextField.attributedText = NSAttributedString(string: text)
+    }
+    
+    
+}
+
+// MARK: - KeyboardEvent
+private extension TitleSettingViewController {
+    @objc
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func observingKeyboardEvent() {
+        keyboardMonitor?.$keyboardHeight
+            .sink(receiveValue: { height in
+                self.nextButtonBottomConstraint?.constant = height > 0 ? -height : 0
+                self.view.layoutIfNeeded()
+            })
+            .store(in: &subscriptions)
     }
 }

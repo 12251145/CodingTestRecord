@@ -9,26 +9,46 @@ import Foundation
 import Combine
 import UIKit
 
-final class KeyboardMonitor {
+final class KeyboardMonitor: ObservableObject {
+    enum Status {
+        case show, hide
+        var description: String {
+            switch self {
+            case .show: return "show"
+            case .hide: return "hide"
+            }
+        }
+    }
+    
     var subscriptions = Set<AnyCancellable>()
+    
+    @Published var keyboardHeight: CGFloat = 0.0
+    
+    lazy var updatedKeyboardStatusAction: AnyPublisher<Status, Never> = $keyboardHeight
+        .map { (height: CGFloat) -> KeyboardMonitor.Status in
+            return height > 0 ? .show : .hide
+        }
+        .eraseToAnyPublisher()
     
     init() {
         NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillShowNotification)
-            .sink { notification in
-                print("Keyboard will show.")
+            .merge(with:
+                    NotificationCenter.Publisher(
+                        center: NotificationCenter.default,
+                        name: UIResponder.keyboardWillChangeFrameNotification)
+            )
+            .compactMap { (notification : Notification) -> CGRect in
+                return notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
             }
-            .store(in: &subscriptions)
+            .map { (keyboardFrame : CGRect) -> CGFloat in
+                return keyboardFrame.height
+            }
+            .subscribe(Subscribers.Assign(object: self, keyPath: \.keyboardHeight))
         
         NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillHideNotification)
-            .sink { notification in
-                print("Keyboard will hide.")
+            .compactMap { (notification : Notification) -> CGFloat in
+                return .zero
             }
-            .store(in: &subscriptions)
-        
-        NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardDidChangeFrameNotification)
-            .sink { notification in
-                print("Keyboard frame will change.")
-            }
-            .store(in: &subscriptions)
+            .subscribe(Subscribers.Assign(object: self, keyPath: \.keyboardHeight))
     }
 }
