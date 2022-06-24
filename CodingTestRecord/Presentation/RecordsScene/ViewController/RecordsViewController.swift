@@ -13,6 +13,7 @@ final class RecordsViewController: UIViewController {
     var viewModel: RecordsViewModel?
     var subscriptions = Set<AnyCancellable>()
     var viewWillAppearEvent = PassthroughSubject<Void, Never>()
+    var swipeToDeleteActionEventSubject = PassthroughSubject<Int, Never>()
     
     
     private lazy var hostingController: UIHostingController<CodingTestResultsBarChartView> = {
@@ -117,7 +118,8 @@ private extension RecordsViewController {
     func bindViewModel() {
         let output = viewModel?.transform(
             from: RecordsViewModel.Input(
-                viewWillAppearEvent: self.viewWillAppearEvent.eraseToAnyPublisher()
+                viewWillAppearEvent: self.viewWillAppearEvent.eraseToAnyPublisher(),
+                swipeToDeleteActionEvent: self.swipeToDeleteActionEventSubject.eraseToAnyPublisher()
             ),
             subscriptions: &subscriptions
         )
@@ -167,6 +169,21 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: nil, handler: { action, view, completionHandler in
+            self.swipeToDeleteActionEventSubject.send(indexPath.row)
+            completionHandler(true)
+        })
+        
+        action.image = UIImage(systemName: "trash.fill")
+        action.backgroundColor = .systemGray2
+        
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
     
     

@@ -176,6 +176,7 @@
 		6A851F64285FF3990072096C /* CodingTestResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCell.swift; sourceTree = "<group>"; };
 		6A851F702860155B0072096C /* CodingTestResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultCellView.swift; sourceTree = "<group>"; };
 		6A851F7628634D110072096C /* KeyboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
+		6A851F782865D0240072096C /* CodingTestRecord.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodingTestRecord.entitlements; sourceTree = "<group>"; };
 		6AADBCB7285D6C05003F92F7 /* CodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCB9285D6C1E003F92F7 /* DefaultCodingTestResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestResultRepository.swift; sourceTree = "<group>"; };
 		6AADBCBF285D7866003F92F7 /* CodingTestingCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestingCellDelegate.swift; sourceTree = "<group>"; };
@@ -810,6 +811,7 @@
 		6ADD0B2F2857103200884C5D /* CodingTestRecord */ = {
 			isa = PBXGroup;
 			children = (
+				6A851F782865D0240072096C /* CodingTestRecord.entitlements */,
 				6ADA1B8828571530009E41AD /* Util */,
 				6ADA1B852857150A009E41AD /* Domain */,
 				6ADA1B802857147E009E41AD /* Presentation */,
@@ -1125,6 +1127,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CodingTestRecord/CodingTestRecord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CU5DL5JJWC;
@@ -1155,6 +1158,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CodingTestRecord/CodingTestRecord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CU5DL5JJWC;

@@ -16,7 +16,7 @@ final class DefaultCodingTestResultRepository: CodingTestResultRepository {
     
     func loadCodingTestResults() -> [CodingTestResult] {
         return self.coreDataService.fetch(request: CodingTestResult.fetchRequest()).sorted { l, r in
-            return l.date! > r.date!            
+            return l.date! > r.date!
         }
     }
     
@@ -26,5 +26,9 @@ final class DefaultCodingTestResultRepository: CodingTestResultRepository {
     
     func getCodingTesting(by codingTestSetting: CodingTestSetting) -> CodingTesting {
         return self.coreDataService.createCodingTesting(by: codingTestSetting)
+    }
+    
+    func deleteCodingTestResult(_ codingTestResult: CodingTestResult) -> Bool {
+        return self.coreDataService.delete(object: codingTestResult)
     }
 }

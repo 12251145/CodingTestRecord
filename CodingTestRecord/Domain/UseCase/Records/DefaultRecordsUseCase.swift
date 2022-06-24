@@ -23,6 +23,13 @@ final class DefaultRecordsUseCase: RecordsUseCase {
     func loadCodingTestResults() {
         self.codingTestResults.send(self.codingTestResultRepository.loadCodingTestResults())
     }
+    
+    func deleteCodingTestSetting(_ codingTestResult: CodingTestResult) {
+        if self.codingTestResultRepository.deleteCodingTestResult(codingTestResult) {
+            let newValue = self.codingTestResultRepository.loadCodingTestResults()
+            self.codingTestResults.send(newValue)
+        }
+    }
 }
 
 

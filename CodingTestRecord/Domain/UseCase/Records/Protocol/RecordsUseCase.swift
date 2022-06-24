@@ -11,4 +11,5 @@ import Foundation
 protocol RecordsUseCase {
     var codingTestResults: CurrentValueSubject<[CodingTestResult], Never> { get set }
     func loadCodingTestResults()
+    func deleteCodingTestSetting(_ codingTestResult: CodingTestResult)
 }

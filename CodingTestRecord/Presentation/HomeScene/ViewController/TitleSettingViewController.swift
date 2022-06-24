@@ -65,6 +65,7 @@ final class TitleSettingViewController: UIViewController {
         
         keyboardMonitor = KeyboardMonitor()
         observingKeyboardEvent()
+        self.titleTextField.delegate = self
         
         configureUI()
         bindViewModel()
@@ -72,6 +73,8 @@ final class TitleSettingViewController: UIViewController {
     
     
 }
+
+
 
 // MARK: - Private Functions
 
@@ -144,9 +147,16 @@ private extension TitleSettingViewController {
     func observingKeyboardEvent() {
         keyboardMonitor?.$keyboardHeight
             .sink(receiveValue: { height in
-                self.nextButtonBottomConstraint?.constant = height > 0 ? -height : 0
+                self.nextButtonBottomConstraint?.constant = height > 0 ? (-height + 20) : 0
                 self.view.layoutIfNeeded()
             })
             .store(in: &subscriptions)
+    }
+}
+ 
+extension TitleSettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

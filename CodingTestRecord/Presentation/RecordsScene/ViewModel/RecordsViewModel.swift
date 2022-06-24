@@ -20,6 +20,7 @@ final class RecordsViewModel {
     
     struct Input {
         var viewWillAppearEvent: AnyPublisher<Void, Never>
+        let swipeToDeleteActionEvent: AnyPublisher<Int, Never>
     }
     
     struct Output {        
@@ -34,6 +35,12 @@ final class RecordsViewModel {
         input.viewWillAppearEvent
             .sink { [weak self] _ in
                 self?.recordsUseCase.loadCodingTestResults()
+            }
+            .store(in: &subscriptions)
+        
+        input.swipeToDeleteActionEvent
+            .sink { index in
+                self.recordsUseCase.deleteCodingTestSetting(self.codingTestResults[index])
             }
             .store(in: &subscriptions)
         
