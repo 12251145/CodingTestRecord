@@ -20,6 +20,7 @@ final class TimeSettingViewModel {
     
     
     struct Input {
+        var viewDidLoadEvent: AnyPublisher<Void, Never>
         var timePlusButtonDidTap: AnyPublisher<Void, Never>
         var timeSbustractButtonDidTap: AnyPublisher<Void, Never>
         var doneButtonDidTap: AnyPublisher<Void, Never>
@@ -32,6 +33,12 @@ final class TimeSettingViewModel {
     
     func transform(from input: Input, subscriptions: inout Set<AnyCancellable>) -> Output {
         let output = Output()
+        
+        input.viewDidLoadEvent
+            .sink { _ in
+                self.codingTestSettingUseCase.requestNotificationAuthorization()
+            }
+            .store(in: &subscriptions)
         
         input.timePlusButtonDidTap
             .sink { _ in

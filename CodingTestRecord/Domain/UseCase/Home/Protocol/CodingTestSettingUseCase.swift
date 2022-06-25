@@ -15,4 +15,5 @@ protocol CodingTestSettingUseCase {
     func addProblem()
     func deleteProblem(_ problem: Problem)
     func updateProblem(_ problem: Problem, _ difficulty: Int32, _ chekcEfficiency: Bool)
+    func requestNotificationAuthorization()
 }

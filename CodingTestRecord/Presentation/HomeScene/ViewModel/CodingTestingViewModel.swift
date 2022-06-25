@@ -45,6 +45,7 @@ final class CodingTestingViewModel {
         
         input.viewDidLoadEvent
             .sink { [weak self] _ in
+                self?.codingTestingUseCase.scheduleNotification()
                 self?.codingTestingUseCase.executeTimer()
             }
             .store(in: &subscriptions)

@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import UserNotifications
 
 final class DefaultCodingTestingUseCase: CodingTestingUseCase {
     private let codingTestResultRepository: CodingTestResultRepository
@@ -24,7 +25,19 @@ final class DefaultCodingTestingUseCase: CodingTestingUseCase {
         self.codingTesting = CurrentValueSubject<CodingTesting, Never>(codingTesting)
     }
 
-    
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "테스트가 종료되었습니다"
+        
+        let date = Date(timeIntervalSinceNow: TimeInterval(self.codingTesting.value.timeLimit))
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: calendarTrigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
     
     func executeTimer() {
         let start = Date()

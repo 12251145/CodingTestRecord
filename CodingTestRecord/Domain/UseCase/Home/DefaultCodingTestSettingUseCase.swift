@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import UserNotifications
 
 final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
     private let codingTestSettingRepository: CodingTestSettingRepository
@@ -60,6 +61,11 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
         self.codingTestSettingRepository.save()
         
         self.codingTestSetting.send(self.codingTestSetting.value)
+    }
+    
+    func requestNotificationAuthorization() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert]) { granted, _ in }
     }
 }
 

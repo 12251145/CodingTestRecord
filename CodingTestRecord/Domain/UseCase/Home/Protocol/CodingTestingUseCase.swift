@@ -13,6 +13,7 @@ protocol CodingTestingUseCase {
     var codingTesting: CurrentValueSubject<CodingTesting, Never> { get set }
     var subscriptions: Set<AnyCancellable> { get set }
     
+    func scheduleNotification()
     func executeTimer()
     func updateCodintTesting(index: Int, passKind: PassKind, isPass: Bool)
 }

@@ -5,7 +5,7 @@
 //  Created by Hoen on 2022/06/13.
 //
 
-import UserNotifications
+
 import UIKit
 
 @main
@@ -17,15 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UITableView.appearance().tableHeaderView = .init(frame: .init(x: 0, y: 0, width: 0, height: 0))
         UITableView.appearance().tableFooterView = .init(frame: .init(x: 0, y: 0, width: 0, height: 300))
-        
-        registerForPushNotifications()
-        
-        let notificationOption = launchOptions?[.remoteNotification]
-
-        if let notification = notificationOption as? [String: AnyObject],
-           let aps = notification["aps"] as? [String: AnyObject] {
-            //
-        }
         
         return true
     }
@@ -43,71 +34,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current()
-            .requestAuthorization(
-                options: [.alert, .badge]) { [weak self] granted, _ in
-                print("Permission granted: \(granted)")
-                guard granted else { return }
-                    
-                    let viewAction = UNNotificationAction(
-                        identifier: "TEST",
-                        title: "열기",
-                        options: [.foreground]
-                    )
-                    
-                    let testCategory = UNNotificationCategory(
-                        identifier: "TEST_CATEGORY",
-                        actions: [viewAction],
-                        intentIdentifiers: [],
-                        options: []
-                    )
-                    
-                    UNUserNotificationCenter.current().setNotificationCategories([testCategory])
-                    
-                self?.getNotificationSettings()
-            }
-    }
-
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
-            
-            guard settings.authorizationStatus == .authorized else { return }
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
-    ) {
-        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: Error
-    ) {
-        print("Failed to register: \(error)")
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
-    ) {
-        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
-            completionHandler(.failed)
-            return
-        }
-        
-    }
 }
-
-

@@ -198,6 +198,7 @@ private extension TimeSettingViewController {
     func bindViewModel() {
         let output = viewModel?.transform(
             from: TimeSettingViewModel.Input(
+                viewDidLoadEvent: Just(()).eraseToAnyPublisher(),
                 timePlusButtonDidTap: self.timePlusButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
                 timeSbustractButtonDidTap: self.timeSubstractButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
                 doneButtonDidTap: self.doneButton.publisher(for: .touchUpInside).eraseToAnyPublisher(),
