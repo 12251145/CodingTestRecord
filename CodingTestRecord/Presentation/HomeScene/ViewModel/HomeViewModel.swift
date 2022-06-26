@@ -26,7 +26,6 @@ final class HomeViewModel {
     }
     
     struct Output {
-        var addButtonDidTap = PassthroughSubject<Bool, Never>()
         var loadData = PassthroughSubject<Bool, Never>()
     }
     
@@ -41,8 +40,7 @@ final class HomeViewModel {
         
         input.addCodingTestButtonDidTap
             .sink { _ in
-                self.homeUseCase.addCodingTest()
-                output.addButtonDidTap.send(true)
+                self.homeUseCase.addCodingTest()                
             }
             .store(in: &subscriptions)
         

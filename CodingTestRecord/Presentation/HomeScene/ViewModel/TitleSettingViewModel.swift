@@ -61,7 +61,7 @@ final class TitleSettingViewModel {
         
         self.titleSettingUseCase.validatedText
             .scan("") { return $1 == nil ? $0 : $1 }
-            .compactMap({$0})
+            .compactMap({ $0 })
             .sink { newText in
                 output.titleTextField.send(newText)
                 self.codingTestSettingUseCase.updateTitle(with: newText)

@@ -68,4 +68,3 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
         center.requestAuthorization(options: [.alert]) { granted, _ in }
     }
 }
-

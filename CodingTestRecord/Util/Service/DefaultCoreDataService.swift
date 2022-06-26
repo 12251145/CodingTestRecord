@@ -11,8 +11,15 @@ import Foundation
 class DefaultCoreDataService: CoreDataService {
     static var shared: DefaultCoreDataService = DefaultCoreDataService()
     
+    public static let modelName = "Model"
+    
+    public static let model: NSManagedObjectModel = {
+        let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+    
     lazy var persistentContainer: NSPersistentContainer = {
-       let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: DefaultCoreDataService.modelName, managedObjectModel: DefaultCoreDataService.model)
         container.loadPersistentStores { storeDescription, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -23,6 +30,20 @@ class DefaultCoreDataService: CoreDataService {
     
     var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
+    }
+    
+    var backgroundContext: NSManagedObjectContext {
+        return self.persistentContainer.newBackgroundContext()
+    }
+    
+    func save() -> Bool {
+        do {
+            try self.context.save()
+            return true
+        } catch {
+            print("CoreData save failed!")
+            return false
+        }
     }
     
     func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
@@ -48,7 +69,7 @@ class DefaultCoreDataService: CoreDataService {
             let managedObject = NSManagedObject(entity: entity, insertInto: self.context) as! CodingTestSetting
             
             
-            for _ in 0...(Int.random(in: 0...6)) {
+            for _ in 0..<3 {
                 let codingTestID = UUID().uuidString
                 
                 managedObject.setValue(Date(), forKey: "date")
@@ -64,23 +85,13 @@ class DefaultCoreDataService: CoreDataService {
                 problem.setValue(false, forKey: "passEfficiencyTest")
                 problem.setValue(0, forKey: "accuracyTestPassTime")
                 problem.setValue(0, forKey: "efficiencyTestPassTime")
-                problem.setValue(Int.random(in: 1...5), forKey: "difficulty")
+                problem.setValue(2, forKey: "difficulty")
                 
                 problem.codingTest = managedObject
             }
             
             return save()
         } else {
-            return false
-        }
-    }
-    
-    func save() -> Bool {
-        do {
-            try self.context.save()
-            return true
-        } catch {
-            print("CoreData save failed!")
             return false
         }
     }
@@ -94,7 +105,7 @@ class DefaultCoreDataService: CoreDataService {
         problem.setValue(false, forKey: "passEfficiencyTest")
         problem.setValue(0, forKey: "accuracyTestPassTime")
         problem.setValue(0, forKey: "efficiencyTestPassTime")
-        problem.setValue(Int.random(in: 1...5), forKey: "difficulty")
+        problem.setValue(3, forKey: "difficulty")
         
         return problem
     }

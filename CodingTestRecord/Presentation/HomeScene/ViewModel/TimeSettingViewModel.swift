@@ -36,6 +36,7 @@ final class TimeSettingViewModel {
         
         input.viewDidLoadEvent
             .sink { _ in
+                
                 self.codingTestSettingUseCase.requestNotificationAuthorization()
             }
             .store(in: &subscriptions)

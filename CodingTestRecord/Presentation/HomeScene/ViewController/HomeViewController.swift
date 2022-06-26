@@ -145,13 +145,6 @@ private extension HomeViewController {
             swipeToDeleteActionEvent: self.swipeToDeleteActionEventSubject.eraseToAnyPublisher()
         ), subscriptions: &subscriptions)
         
-        output?.addButtonDidTap
-            .filter { $0 }
-            .sink(receiveValue: { [weak self] _ in
-                self?.tableView.reloadData()
-            })
-            .store(in: &subscriptions)
-        
         output?.loadData
             .filter { $0 }
             .sink(receiveValue: { _ in

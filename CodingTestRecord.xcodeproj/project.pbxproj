@@ -57,6 +57,9 @@
 		6A541FB0285790A7000008D4 /* DefaultCodingTestSettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */; };
 		6A541FB328579112000008D4 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB228579112000008D4 /* CoreDataService.swift */; };
 		6A541FB52858530E000008D4 /* Int32 + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A541FB42858530E000008D4 /* Int32 + Formatter.swift */; };
+		6A6262B128689FC600C7E9CA /* TimeSettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6262B028689FC600C7E9CA /* TimeSettingViewModelTests.swift */; };
+		6A6262B42868A00D00C7E9CA /* MockCodingTestSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6262B32868A00D00C7E9CA /* MockCodingTestSettingUseCase.swift */; };
+		6A6262B62868A0C200C7E9CA /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6262B52868A0C200C7E9CA /* TestCoreDataStack.swift */; };
 		6A851F38285E04CF0072096C /* CodingTestTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F37285E04CF0072096C /* CodingTestTimelineCell.swift */; };
 		6A851F3A285E06840072096C /* CodingTestTimelineCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F39285E06840072096C /* CodingTestTimelineCellViewModel.swift */; };
 		6A851F3C285E076F0072096C /* CodingTestTimelineCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A851F3B285E076F0072096C /* CodingTestTimelineCellDelegate.swift */; };
@@ -109,6 +112,16 @@
 		6ADD0B3D2857103400884C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADD0B3B2857103400884C5D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6A4CEA97286732F30066EFB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ADD0B252857103100884C5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ADD0B2C2857103200884C5D;
+			remoteInfo = CodingTestRecord;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6A026C5A285A325A0003BB89 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		6A026C5C285A32DE0003BB89 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,11 +168,15 @@
 		6A46822F285893BC009D843D /* CodingTestSetting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingTestSetting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6A468230285893BC009D843D /* Problem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Problem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6A468231285893BC009D843D /* Problem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Problem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A4CEA93286732F30066EFB5 /* CodingTestRecordViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTestRecordViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A541FA9285775E0000008D4 /* DefaultCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataService.swift; sourceTree = "<group>"; };
 		6A541FAD28579084000008D4 /* CodingTestSettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestSettingRepository.swift; sourceTree = "<group>"; };
 		6A541FAF285790A7000008D4 /* DefaultCodingTestSettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCodingTestSettingRepository.swift; sourceTree = "<group>"; };
 		6A541FB228579112000008D4 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6A541FB42858530E000008D4 /* Int32 + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int32 + Formatter.swift"; sourceTree = "<group>"; };
+		6A6262B028689FC600C7E9CA /* TimeSettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModelTests.swift; sourceTree = "<group>"; };
+		6A6262B32868A00D00C7E9CA /* MockCodingTestSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodingTestSettingUseCase.swift; sourceTree = "<group>"; };
+		6A6262B52868A0C200C7E9CA /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		6A851F37285E04CF0072096C /* CodingTestTimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCell.swift; sourceTree = "<group>"; };
 		6A851F39285E06840072096C /* CodingTestTimelineCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCellViewModel.swift; sourceTree = "<group>"; };
 		6A851F3B285E076F0072096C /* CodingTestTimelineCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTestTimelineCellDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +233,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6A4CEA90286732F30066EFB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ADD0B2A2857103200884C5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +302,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		6A4CEA94286732F30066EFB5 /* CodingTestRecordViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				6A6262B52868A0C200C7E9CA /* TestCoreDataStack.swift */,
+				6A6262AF28689F7400C7E9CA /* HomeScene */,
+			);
+			path = CodingTestRecordViewModelTests;
+			sourceTree = "<group>";
+		};
 		6A541FAB28577AAB000008D4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +336,23 @@
 				6A541FB228579112000008D4 /* CoreDataService.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6A6262AF28689F7400C7E9CA /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				6A6262B228689FF400C7E9CA /* Mock */,
+				6A6262B028689FC600C7E9CA /* TimeSettingViewModelTests.swift */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		6A6262B228689FF400C7E9CA /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				6A6262B32868A00D00C7E9CA /* MockCodingTestSettingUseCase.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		6A851F32285E04680072096C /* CodingTestTimelineCell */ = {
@@ -796,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				6ADD0B2F2857103200884C5D /* CodingTestRecord */,
+				6A4CEA94286732F30066EFB5 /* CodingTestRecordViewModelTests */,
 				6ADD0B2E2857103200884C5D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -804,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				6ADD0B2D2857103200884C5D /* CodingTestRecord.app */,
+				6A4CEA93286732F30066EFB5 /* CodingTestRecordViewModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -826,6 +878,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6A4CEA92286732F30066EFB5 /* CodingTestRecordViewModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A4CEA9B286732F30066EFB5 /* Build configuration list for PBXNativeTarget "CodingTestRecordViewModelTests" */;
+			buildPhases = (
+				6A4CEA8F286732F30066EFB5 /* Sources */,
+				6A4CEA90286732F30066EFB5 /* Frameworks */,
+				6A4CEA91286732F30066EFB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A4CEA98286732F30066EFB5 /* PBXTargetDependency */,
+			);
+			name = CodingTestRecordViewModelTests;
+			productName = CodingTestRecordViewModelTests;
+			productReference = 6A4CEA93286732F30066EFB5 /* CodingTestRecordViewModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6ADD0B2C2857103200884C5D /* CodingTestRecord */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ADD0B412857103400884C5D /* Build configuration list for PBXNativeTarget "CodingTestRecord" */;
@@ -853,6 +923,11 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					6A4CEA92286732F30066EFB5 = {
+						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1400;
+						TestTargetID = 6ADD0B2C2857103200884C5D;
+					};
 					6ADD0B2C2857103200884C5D = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -872,11 +947,19 @@
 			projectRoot = "";
 			targets = (
 				6ADD0B2C2857103200884C5D /* CodingTestRecord */,
+				6A4CEA92286732F30066EFB5 /* CodingTestRecordViewModelTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6A4CEA91286732F30066EFB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ADD0B2B2857103200884C5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -889,6 +972,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6A4CEA8F286732F30066EFB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6262B42868A00D00C7E9CA /* MockCodingTestSettingUseCase.swift in Sources */,
+				6A6262B128689FC600C7E9CA /* TimeSettingViewModelTests.swift in Sources */,
+				6A6262B62868A0C200C7E9CA /* TestCoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ADD0B292857103200884C5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -996,6 +1089,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6A4CEA98286732F30066EFB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ADD0B2C2857103200884C5D /* CodingTestRecord */;
+			targetProxy = 6A4CEA97286732F30066EFB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		6ADD0B3B2857103400884C5D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1008,6 +1109,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6A4CEA99286732F30066EFB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CU5DL5JJWC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghdps.CodingTestRecordViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestRecord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CodingTestRecord";
+			};
+			name = Debug;
+		};
+		6A4CEA9A286732F30066EFB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CU5DL5JJWC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghdps.CodingTestRecordViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodingTestRecord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CodingTestRecord";
+			};
+			name = Release;
+		};
 		6ADD0B3F2857103400884C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1187,6 +1337,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6A4CEA9B286732F30066EFB5 /* Build configuration list for PBXNativeTarget "CodingTestRecordViewModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A4CEA99286732F30066EFB5 /* Debug */,
+				6A4CEA9A286732F30066EFB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6ADD0B282857103200884C5D /* Build configuration list for PBXProject "CodingTestRecord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
