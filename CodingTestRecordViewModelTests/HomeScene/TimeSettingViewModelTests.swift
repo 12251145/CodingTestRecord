@@ -31,7 +31,7 @@ final class TimeSettingViewModelTests: XCTestCase {
         self.subscriptions.removeAll()
     }
 
-    func test_Example() {
+    func test_plus_and_substract_button_tap() {
         let plusButtonTapEvent = Future<Void, Never> { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
                 promise(.success(()))

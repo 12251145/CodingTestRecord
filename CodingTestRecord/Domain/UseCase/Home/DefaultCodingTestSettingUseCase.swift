@@ -35,7 +35,14 @@ final class DefaultCodingTestSettinguseCase: CodingTestSettingUseCase {
     
     func updateTime(with time: Int32) {
         let newValue = self.codingTestSetting.value
-        newValue.timeLimit += time
+        
+        if newValue.timeLimit + time > 43200 {
+            newValue.timeLimit = 43200
+        } else if newValue.timeLimit + time < 0 {
+            newValue.timeLimit = 0
+        } else {
+            newValue.timeLimit += time
+        }
         
         self.codingTestSettingRepository.save()
         
