@@ -24,4 +24,17 @@
 ## 🔗 아키텍처
 ### MVVM CleanArchitecture Coordinator
 
+> ### MVVM
 
+- UI를 그리는 일과 비즈니스 로직을 분리함.
+- ViewController에서 UI를 그리는 역할을 맡고, 로직은 ViewModel에서 관리.
+
+> ### Clean Architecture
+
+- ViewModel에서의 역할도 분리.
+- 화면에 필요한 로직을 제외한 비즈니스 로직은 Domain레이어의 UseCase로,
+- 데이터를 가져오는 작업은 Data레이어의 Repository로 분리.
+
+> ### Coordinator
+
+- ViewController에서 화면 전환 로직과 의존성 주입의 역할도 분리.
